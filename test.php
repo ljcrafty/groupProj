@@ -12,15 +12,26 @@
 				"Dog! My phone number is (145)234-5678. Email: panda8024@potato.com " + 
 				"192.168.000.100 1-800-CALLNOW #$%^&*<>-=+{}[]\|/,;\"";
 		
+		//resets the error flag
+		document.getElementById("error").style.display = "none";
+		
 		//if there is input
 		if(input != null && input != "")
-		{
+		{	
 			//array to hold match indicies and lengths
 			var matches = new Array();
 			var repo = document.getElementById("repo");
 			
-			//find the text that matches this expression and split it by commas
-			var match = text.match(new RegExp(input, "g"));
+			try
+			{
+				//find the text that matches this expression and split it by commas
+				var match = text.match(new RegExp(input, "g"));
+			}
+			//shows a flag if the expression throws an error
+			catch(error)
+			{
+				document.getElementById("error").style.display = "inline-block";
+			}
 			
 			//short circuit for no matches
 			if(match == null)
@@ -41,7 +52,7 @@
 				//while there is still a new match, put the index and length of word in matches
 				while(found != -1)
 				{
-					matches.push(new Array(found, match[i].length))//.length counts actual # of characters
+					matches.push(new Array(found, match[i].length));//.length counts actual # of characters
 					index = found + match[i].length;
 					found = text.indexOf(match[i], index);
 				}
@@ -49,8 +60,8 @@
 			
 			//overlapping sections should take the earliest starting highlight and the longest one
 			matches = sortMatches(matches);
-			console.dir(matches);
 			matches = deleteOverlap(matches);
+			console.dir(matches);
 			
 			//necessary to keep track after string lengths
 			index = 0;
@@ -61,6 +72,7 @@
 			var node = document.createTextNode(previous);
 			repo.innerHTML = "";
 			repo.appendChild(node);
+			
 			
 			//matches is now an ordered array of pairs of ints for the start and length of selected text
 			for(var i = 0; i < matches.length; i++)
@@ -89,6 +101,7 @@
 		}
 	}
 	
+	//deletes matches that match the same text
 	function deleteDuplicates(array)
 	{
 		var temp = new Array();
@@ -153,7 +166,7 @@
 		return temp;
 	}
 	
-	//delete matches that start in the same place
+	//delete matches that start in the same place or the selections overlap
 	function deleteOverlap(matches)
 	{
 		var temp = new Array();
@@ -173,7 +186,7 @@
 				if(matches[i + 1][0] != matches[i][0])
 				{
 					//make sure previous matches didn't end after this one
-					if(end < matches[i][0])
+					if(end <= matches[i][0])
 					{
 						temp.push(matches[i]);
 					
@@ -187,6 +200,8 @@
 	}
 </script>
 	/<input oninput="readReg()" id="regex" type="text" size="30" />/g
+	
+	<span id="error">Error</span>
 	
 	<p id="repo">
 		The quick brown fox jumped over the lazy dog. THE QUICK BROWN FOX 
