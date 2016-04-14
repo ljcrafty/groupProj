@@ -1,6 +1,7 @@
 <?php $title = "Topic 7: Look Around";
 	require("head.php"); ?>
 	<!-- Lauren Johnston: set up basic html and php includes 4/5/16-->
+	<div class="content">
 	<p>
 		Now, what if you want to get a specific part of the text, but the only way to 
 		identify it is by what's around the text you need? Well, that's what look around 
@@ -54,4 +55,5 @@
 	$answer = "\d+(?=px)";
 	require("practice.php");	 
 ?>
+</div>
 <?php require("footer.php");?>

@@ -2,6 +2,7 @@
 	$head = "Finding Simple Text / Numbers";
 	require("head.php"); ?>
 	<!-- Lauren Johnston: set up basic html and php includes 4/4/16-->
+	<div class="content">
   	<p>
   		Regular expressions can look pretty complicated if you're just starting out, but 
 		don't let yourself be scared off! In this tutorial we'll start with the most basic
@@ -83,4 +84,5 @@
 	$answer = "po.";
 	require("practice.php");	 
 ?>
+	</div>
 <?php require("footer.php"); ?>

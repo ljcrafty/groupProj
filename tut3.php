@@ -1,6 +1,7 @@
 <?php $title = "Topic 3: Metacharacters";
 	require("head.php");?>
 	<!-- Lauren Johnston: set up basic html and php includes 4/4/16-->
+	<div class="content">
   	<p>
   		A metacharacter is a character followed by a backslash (\) that holds specific meaning 
 		in the expression. Different characters affect the expression in different ways. 
@@ -110,4 +111,5 @@
 	$answer = "\(\d\d\d\)";
 	require("practice.php");	 
 ?>
+</div>
 <?php require("footer.php");?>
