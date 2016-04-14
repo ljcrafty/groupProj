@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Regular Expressions | <?=$title?></title>
-  	<link rel="stylesheet" href="index.css" type="text/css">
+  	<link rel="stylesheet" href="css/index.css" type="text/css">
 	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
   </head>
   <body>
