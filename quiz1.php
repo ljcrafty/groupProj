@@ -1,9 +1,11 @@
 <?php $title = "Topic 1 Quiz: Finding Simple Text";
 	$head = "Quiz: Finding Simple Text / Numbers";
 	require("head.php"); ?>
+<script>var answers = new Array("pop", ". pops", "125", "a3", ".arrot");</script>
 <script src="js/functions.js"></script>
 	<div class="content">
-		<form action="quiz1.php" method="post" onsubmit="return validate();"/>
+		<div id="feedback"></div>
+		<form action="quiz1.php" method="post" onsubmit="validate(); return false;"/>
 		<ol>
 			<li>
 				What would select "pop" from "poppy potatoes"?<br/>
