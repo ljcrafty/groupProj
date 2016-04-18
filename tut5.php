@@ -32,11 +32,11 @@
 			Would capture: nothing  
 		</li>
 	</ul>
+<script>var answer = '(\d{4})';</script>
 <?php
 	$captures = true;
 	$matches[] = "1987";
 	$matches[] = "2005";
-	$answer = "(\d{4})";
 	require("practice.php");	 
 ?>
 </div>

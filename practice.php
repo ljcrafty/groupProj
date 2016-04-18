@@ -1,5 +1,6 @@
 <?php 
-	echo "<form action= 'practic.php' method='post'>
+	echo "<div id='feedback'></div>
+	<form action='tut1.php' method='post' onsubmit='return false;'>
   	<p>Find an expression that ".($captures ? "captures:" : "matches:")."</p>
 	<ul>
 		<li>$matches[0]</li>
@@ -10,6 +11,6 @@
 		<li>$but_not</li>
 	</ul>": '')."
 	<input type='text' size='30' />
-	<input type='submit'/>
+	<input type=\"submit\" name=\"submit\" value=\"Continue ->\"/ onclick='validateSingle();'>
 </form>"
 ?>

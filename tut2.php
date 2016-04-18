@@ -43,11 +43,11 @@
 			popcorn, <strong>pop4</strong>
 		</li>
 	</ul>
+<script>var answer = '[hs]andle';</script>
 <?php
 	$matches[] = "handle";
 	$matches[] = "sandle";  
 	$but_not = "candle";
-	$answer = "[hs]andle";
 	require("practice.php");	 
 ?>
 </div>

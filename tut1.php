@@ -77,11 +77,11 @@
   		How about you try it?
   	</p>
   	
+<script>var answer = 'po.';</script>
 <?php
 	$matches[] = "pot";
 	$matches[] = "pop";  
 	$but_not = "pan";
-	$answer = "po.";
 	require("practice.php");	 
 ?>
 	</div>

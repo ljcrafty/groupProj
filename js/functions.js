@@ -43,7 +43,7 @@ function validate()
 	if(error)//handle error
 	{
 		error = "Please answer the following questions:<br/>" + error;
-		feedback("red", error);
+		feedback(error, "red");
 	}
 	else//check if the answers are correct
 	{//assume there's an array of answers and there is an answer given for every question
@@ -63,7 +63,7 @@ function validate()
 				"<br/>If you are having trouble finding the answer, try to look for " + 
 				"answers in the tutorial for this topic and make sure you aren't using " + 
 				"information from a later topic!";
-			feedback("red", error);
+			feedback(error, "red");
 		}
 		else//all answers correct
 		{
@@ -76,13 +76,58 @@ function validate()
 			else
 			{
 				error = "Great Job! You finished the quiz!";
-				feedback("green", error);
+				feedback(error,"green");
 			}
 		}
 	}
-}
+}//end validate
 
-function feedback( color, error )
+function validateSingle()//validation for one practice problem
+{
+	var input = document.getElementsByTagName("input")[0];
+	var error = "";
+	
+	if(input.value == "")
+	{
+		error = "Please provide and answer to the Practice Problem.";
+	}
+	else
+	{
+		var value = input.value;
+	}
+	
+	if(error)//fails validation
+	{
+		feedback(error, "red");
+	}
+	else
+	{
+		if(value == answer)//correct answer; assumes answer is defined in call file because
+		{//passing it was a horrible time
+			var page = window.location.pathname.split("/").pop().substr(3, 1);
+			var number = parseInt(page) + 1;
+			
+			if(page < 7)//go to next tutorial
+			{
+				window.location = "tut" + number + ".php";
+			}
+			else
+			{
+				error = "Great Job! You've Completed all of the tutorials!";
+				feedback(error, "green");
+			}
+		}
+		else
+		{
+			error = "Oops! Not Quite, try again!<br/><br/>" + 
+				" Make sure you're only using concepts from this lesson in your answer!";
+			feedback(error, "red");
+		}
+	}
+	return false;
+}//end validateSingle
+
+function feedback( error, color )
 {
 	var div = document.getElementById("feedback");
 	div.innerHTML = error;//happens no matter what

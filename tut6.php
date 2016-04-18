@@ -43,11 +43,11 @@
 		</li>
 		<li>Backreferences can not be used inside character classes.</li>
 	</ul>
+<script>var answer = '\w(et) \w\1';</script>
 <?php
 	$matches[] = "get set";
 	$matches[] = "let jet";  
 	$but_not = "get";
-	$answer = "\w(et) \w\1";
 	require("practice.php");	 
 ?>
 </div>

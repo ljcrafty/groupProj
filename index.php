@@ -41,13 +41,14 @@
 					</p>
 				</div>
 				
-				<h1>Share Your Regex!</h1>
-				<p>
-					Have you been using Regular Expressions for any cool new projects? We'd love to hear 
-					your story! Give some tips to first time regular expression users, share that expression 
-					you've just perfected, or even just share your experience learning with our site.
-				</p>
-				
+				<div class="container">
+					<h1>Share Your Regex!</h1>
+					<p>
+						Have you been using Regular Expressions for any cool new projects? We'd love to hear 
+						your story! Give some tips to first time regular expression users, share that expression 
+						you've just perfected, or even just share your experience learning with our site.
+					</p>
+				</div>
 				<input type="text" name="name" size="30"/>
 				<textarea name="comment"></textarea>
 				<input type="submit" name="submit"/>

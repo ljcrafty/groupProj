@@ -58,12 +58,12 @@
 				(*), which represents that the previous character can be present zero or more times. 
 				The second is the plus sign (+), which is used to signify expressions repeated one 
 				or more times. So, "a\d*" would select "a" and "a1", but "a\d+" would only select "a1".
-			</p>		
+			</p>
+<script>var answer = '\w{3,5}';</script>	
 <?php
 	$matches[] = "art";
 	$matches[] = "pizza";  
 	$but_not = "illustrate";
-	$answer = "\w{3,5}";
 	require("practice.php");	 
 ?>
 </div>

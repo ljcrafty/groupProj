@@ -48,11 +48,11 @@
 			Result: @<strong>123</strong>   @<strong>567</strong>   @<strong>888</strong>
 		</li>
 	</ul>
+<script>var answer = '\d+(?=px)';</script>
 <?php
 	$matches[] = '"1200" from "1200px"';
 	$matches[] = '"87" from "87px"';  
 	$but_not = "87";
-	$answer = "\d+(?=px)";
 	require("practice.php");	 
 ?>
 </div>

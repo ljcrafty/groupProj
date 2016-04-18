@@ -104,11 +104,11 @@
   			<td>The character given by the unicode number following the backslash (\)</td>
   		</tr>
   	</table>
+<script>var answer = '\(\d\d\d\)';</script>
 <?php
 	$matches[] = "(123)";
 	$matches[] = "(456)";  
 	$but_not = "(123456)";
-	$answer = "\(\d\d\d\)";
 	require("practice.php");	 
 ?>
 </div>
