@@ -1,8 +1,6 @@
 <?php $title = "Topic 4: Quantifiers";
 	require("head.php"); ?>
 	<!-- Lauren Johnston: set up basic html and php includes 4/4/16-->
-	<content>
-		<div class = "content">
 			<!--
 			<div class = "second-menu">
 				<ul>
@@ -59,7 +57,7 @@
 				The second is the plus sign (+), which is used to signify expressions repeated one 
 				or more times. So, "a\d*" would select "a" and "a1", but "a\d+" would only select "a1".
 			</p>
-<script>var answer = '\w{3,5}';</script>	
+<script>var answer = '\\w{3,5}';</script>	
 <?php
 	$matches[] = "art";
 	$matches[] = "pizza";  
@@ -67,5 +65,4 @@
 	require("practice.php");	 
 ?>
 </div>
-</content>
 <?php require("footer.php");?>

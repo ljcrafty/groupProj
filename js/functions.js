@@ -23,7 +23,7 @@ function validate()
 			}
 			if(!checked)
 			{
-				error += "Question " + inputs[i].name.split("q")[1] + "<br/>";
+				error += "<li>Question " + inputs[i].name.split("q")[1] + "</li>";
 			}
 			i += radio.length - 1;
 		}
@@ -31,7 +31,7 @@ function validate()
 		{
 			if(inputs[i].value == "")
 			{
-				error += "Question " + inputs[i].name.split("q")[1] + "<br/>";
+				error += "<li>Question " + inputs[i].name.split("q")[1] + "</li>";
 			}
 			else
 			{
@@ -42,7 +42,7 @@ function validate()
 	
 	if(error)//handle error
 	{
-		error = "Please answer the following questions:<br/>" + error;
+		error = "Please answer the following questions:<ul>" + error + "</ul>";
 		feedback(error, "red");
 	}
 	else//check if the answers are correct
@@ -52,15 +52,15 @@ function validate()
 		{
 			if(values[i] != answers[i])
 			{
-				error += "Question " + (parseInt(i) + 1) + "<br/>";
+				error += "<li>Question " + (parseInt(i) + 1) + "</li>";
 			}
 		}
 		
 		//make error string
 		if(error)
 		{
-			error = "The following answers are incorrect: <br/>" + error + 
-				"<br/>If you are having trouble finding the answer, try to look for " + 
+			error = "The following answers are incorrect: <ul>" + error + 
+				"</ul>If you are having trouble finding the answer, try to look for " + 
 				"answers in the tutorial for this topic and make sure you aren't using " + 
 				"information from a later topic!";
 			feedback(error, "red");
@@ -84,12 +84,13 @@ function validate()
 
 function validateSingle()//validation for one practice problem
 {
+	console.log(answer);
 	var input = document.getElementsByTagName("input")[0];
 	var error = "";
 	
 	if(input.value == "")
 	{
-		error = "Please provide and answer to the Practice Problem.";
+		error = "Please provide an answer to the Practice Problem.";
 	}
 	else
 	{
@@ -119,7 +120,7 @@ function validateSingle()//validation for one practice problem
 		}
 		else
 		{
-			error = "Oops! Not Quite, try again!<br/><br/>" + 
+			error = "Oops! Not quite, try again!<br/><br/>" + 
 				" Make sure you're only using concepts from this lesson in your answer!";
 			feedback(error, "red");
 		}
@@ -134,7 +135,7 @@ function feedback( error, color )
 	
 	if(color == "green")
 	{
-		div.style.backgroundColor = "";
+		div.style.backgroundColor = "#90db76";
 		div.style.border = "2px solid green";
 	}
 	else

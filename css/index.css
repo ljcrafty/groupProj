@@ -1,12 +1,15 @@
-html, body{
+html, body
+{
 	padding: 0;
 	margin: 0;
 	height: 100%;
 	font-family: Helvetica, Arial, Sans-Serif;
+	background: #eeebe9;
 }
 
+/*nav*/
 .inner-section {
-	max-width: 75%;
+	max-width: 85%;
 	margin: 0 auto;
 }
 
@@ -15,14 +18,14 @@ nav, nav ul, nav ul li, nav ul li a{
 	margin: 0;
 	font-weight: bold;
 	text-decoration: none;
-	font-size: 17px;
+	font-size: 13pt;
 	color: #999;
 	text-shadow: 0 1px 1px rgba(0,0,0,0.8);	
 }
 
 nav:before, nav:after, nav > ul:before, nav > ul:after{
 	content: '';
-	display: block;
+	display: table;
 	clear: both;
 	height: 0;
 }
@@ -30,10 +33,11 @@ nav:before, nav:after, nav > ul:before, nav > ul:after{
 nav{
 	height: 69px;
 	background: #222;
-	min-width: 1000px;
+	min-width: 100%;
+	position: absolute;
 }
 
-nav ul {
+.main-menu {
 	height: 69px;
 }
 
@@ -44,14 +48,50 @@ nav ul li {
 
 nav ul li a {
 	display: block;
-	height: 37px;
-	padding: 22px 30px;
-	margin: 4px 3px;
+	height: 69px;
+	width: 250px;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	background-color: #222;
 }
 
 nav ul li a:hover{
-	display: block;	
-	color: #fffff2;
+	background-color: #76C2DB;
+	border: 1px solid #222222;
+	border-top: none;
+	box-sizing: border-box;
+	color: #222222;
+}
+
+nav li>ul
+{
+	width: 100%;
+	display: none;
+}
+
+nav li li a
+{
+	font-weight: normal;
+	font-size: 11pt;
+	border-top: 1px solid #76C2DB;
+	padding: 2px, 5px;
+}
+
+.main-menu>li
+{
+	width: 16%;
+}
+
+.main-menu li li
+{
+	width: 100%;
+}
+
+.main-menu>li:hover ul
+{
+	width: 250px;
+	display: block;
 }
 
 .second-menu {
@@ -80,15 +120,14 @@ nav ul li a:hover{
     color: white;
 }
 
-
+/*content stuff*/
 .content{
 	margin: 0 auto;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	padding-right: 280px;
-	padding-left: 280px;
-	background: #eeebe9;
-	min-height: 72%;
+	padding-top: 10%;
+	padding-bottom: 3%;
+	padding-right: 15%;
+	padding-left: 15%;
+	min-height: 66%;
 }
 
 .container {
@@ -100,14 +139,135 @@ h1{
 	margin: 0 auto;
 	padding-top: 50px;
 	padding-bottom: 20px;
-	padding-right: 280px;
-	padding-left: 280px;
 	background: #eeebe4;
-	border-bottom: 1px solid #999;
+	border-bottom: 1px solid #42B5DB;
 	font-family: 'Open Sans';
 }
 
+p, .content li
+{
+	line-height: 1.5em;
+}
+
+.content li
+{
+	margin: 5px 0;
+}
+
+.content a:active, .content a:link
+{
+	color:#42B5DB
+}
+
+.content a:visited
+{
+	color: black;
+}
+
+.content a:hover
+{
+	color: #76C2DB;
+}
+
+/*Appendix-specific*/
+#dictionaryList
+{
+	padding: 0;
+}
+
+#dictionaryList li
+{
+	list-style-type: none;
+	margin: 0;
+}
+
+#dictionaryList li a
+{
+	display: block;
+	padding: 2%;
+	margin: 20px;
+	text-align: center;
+	background-color: #42b5db;
+	border-radius: 5px;
+}
+
+#dictionaryList li a:active, #dictionaryList li a:link, #dictionaryList li a:visited
+{
+	color: black;
+	text-decoration: none;
+}
+
+#dictionaryList li a:hover
+{
+	background-color: #76c2db;
+}
+
+/*tables*/
+table
+{
+	border-collapse: collapse;
+}
+
+td
+{
+	border: 1px solid black;
+	padding: 5px;
+}
+
+.firstTable
+{
+	width: 100px;
+	text-align: center;
+}
+
+.oddTable
+{
+	background-color: #76C2DB;
+}
+
+/*feedback area*/
+#feedback
+{
+	padding: 10px;
+	margin: 10px;
+	display: none;
+}
+
+/*user interaction*/
+textarea
+{
+	width: 500px;
+	height: 200px;
+	margin: 10px 0;
+}
+
+input
+{
+	margin: 15px 5px;
+}
+
+/*regex tester*/
+.selected
+{
+	background-color: rgb(44,168,209);
+	margin: 0 2px;
+}
+
+#error
+{	
+	background-color: #ff6666;
+	border: 2px solid red;
+	border-radius: 5px;
+	padding: 5px;
+	display: none;
+	margin: 0 10px;	
+}
+
 footer {
+	position: absolute;
+	text-align: center;
+	width: 94%;
 	background-color: #222;
-	height: 50px;
+	color: white;
+	padding: 3%;
 }

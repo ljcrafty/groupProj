@@ -1,7 +1,6 @@
 <?php $title = "Topic 2: Character Sets";
 	require("head.php"); ?>
 	<!-- Lauren Johnston: set up basic html and php includes 4/4/16-->
-	<div class="content">
   	<p>
   		Now, our example from the last topic, "Hop on Pop", would also select words like 
 		"mop" or "top", which we don't want. Luckily, there is something called a 

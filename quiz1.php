@@ -2,7 +2,6 @@
 	$head = "Quiz: Finding Simple Text / Numbers";
 	require("head.php"); ?>
 <script>var answers = new Array("pop", ". pops", "125", "a3", ".arrot");</script>
-	<div class="content">
 		<div id="feedback"></div>
 		<form action='quiz1.php' method='post' onsubmit='validate(); return false;'>
 		<ol>

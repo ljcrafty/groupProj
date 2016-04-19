@@ -38,4 +38,5 @@
   			technical details that might answer your questions if you need more in-depth help.
   		</li>
   	</ul>
+  </div>
 <?php require("footer.php");?>

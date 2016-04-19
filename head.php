@@ -12,7 +12,7 @@
     <nav>			
 		<div class = "inner-section">
 			<ul class = "main-menu"> 	
-				<li><a href = '#'>Home</a></li>
+				<li><a href = 'index.php'>Home</a></li>
 				<li>
 					<a href = '#'>Tools</a>
 					<ul>
@@ -44,11 +44,11 @@
 						<li><a href="quiz7.php">Topic 7: Look Around</a></li>
 					</ul>
 				</li>
-				<li><a href = '#'>Appendix</a></li>
+				<li><a href = 'dict.php'>Appendix</a></li>
 				<li><a href = '#'>About</a></li>
 			</ul>
 		</div>
 	</nav>	
-	
-  	<h1><?=($head ? $head : $title )?></h1>
+	<div class="content">
+  		<h1><?=($head ? $head : $title )?></h1>
 	

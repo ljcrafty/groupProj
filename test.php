@@ -1,7 +1,6 @@
 <?php $title = "Regular Expressions Tester";
 	require("head.php");
 ?>
-<link rel="stylesheet" type="text/css" href="regex.css" />
 <script>
 	function readReg()
 	{
@@ -199,9 +198,7 @@
 		return temp;
 	}
 </script>
-	/<input oninput="readReg()" id="regex" type="text" size="30" />/g
-	
-	<span id="error">Error</span>
+	<p>/<input oninput="readReg()" id="regex" type="text" size="30" />/g<span id="ß">Error</span></p>
 	
 	<p id="repo">
 		The quick brown fox jumped over the lazy dog. THE QUICK BROWN FOX 
@@ -209,5 +206,5 @@
 		Dog! My phone number is (145)234-5678. Email: panda8024@potato.com 
 		192.168.000.100 1-800-CALLNOW #$%^&amp;*&lt;&gt;-=+{}[]\|/,;
 	</p>
-
+</div>
 <?php require("footer.php"); ?>

@@ -1,7 +1,6 @@
 <?php $title = "Topic 6: Backferences";
 	require("head.php"); ?>
 	<!-- Lauren Johnston: set up basic html and php includes 4/5/16-->
-	<div class="content">
 	<p>
 		Once you know how to use sub-expressions and make captures, one of the questions 
 		you are probably having is why? Well, sub-expressions can be useful if you want to 
@@ -43,7 +42,7 @@
 		</li>
 		<li>Backreferences can not be used inside character classes.</li>
 	</ul>
-<script>var answer = '\w(et) \w\1';</script>
+<script>var answer = '\\w(et) \\w\\1';</script>
 <?php
 	$matches[] = "get set";
 	$matches[] = "let jet";  

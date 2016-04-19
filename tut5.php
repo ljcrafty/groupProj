@@ -1,7 +1,6 @@
 <?php $title = "Topic 5: Sub-Expressions";
 	require("head.php"); ?>
 	<!-- Lauren Johnston: set up basic html and php includes 4/5/16-->
-	<div class="content">
 	<p>
 		A sub-expression is a fairly simple concept. Pretty much, sub-expressions group 
 		expressions into smaller sections and also "mark" or "capture" sections for later 
@@ -32,7 +31,7 @@
 			Would capture: nothing  
 		</li>
 	</ul>
-<script>var answer = '(\d{4})';</script>
+<script>var answer = '(\\d{4})';</script>
 <?php
 	$captures = true;
 	$matches[] = "1987";
