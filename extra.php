@@ -1,6 +1,7 @@
 <?php $title = "Extra Help";
 	require("head.php");?> 
 	<!-- Lauren Johnston: set up basic html and php includes 4/4/16-->
+  	<h2>Common Errors</h2>
   	<ul>
   		<li>
   			<strong>Infinite Error:</strong> The Infinite error occurs when the expression 

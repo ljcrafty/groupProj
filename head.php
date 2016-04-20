@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
 	<script src="js/functions.js"></script>
   </head>
-  <body>
+  <body onload="showSuccess();">
     <nav>			
 		<div class = "inner-section">
 			<ul class = "main-menu"> 	
@@ -50,5 +50,6 @@
 		</div>
 	</nav>	
 	<div class="content">
+		<div id="success">Great Job! Keep going with this new section!</div>
   		<h1><?=($head ? $head : $title )?></h1>
 	

@@ -15,7 +15,6 @@
 				</ul>
 			</div>
 			-->
-			
 			<p>
 				A quantifier changes how many times different parts of expressions are repeated. 
 				If you want a few characters with the same specifications in a row, quantifiers 
@@ -31,8 +30,8 @@
 			<p>
 			<ul>
 				<li>
-					<strong>Example(1):</strong>
-					Regex: [0-9]{4}
+					<strong>Example(1):</strong><br/>
+					Regex: [0-9]{4}<br/>
 					Result: 12  123  <strong>1234</strong>  <strong>1235</strong>6  789  <strong>7890</strong>
 				</li>
 			</ul>
@@ -44,8 +43,8 @@
 			<p>
 			<ul>
 				<li>
-					<strong>Example(2):</strong>
-					Regex: \d{2,4}
+					<strong>Example(2):</strong><br/>
+					Regex: \d{2,4}<br/>
 					Result: 1  <strong>12</strong>  <strong>123</strong>  <strong>1234</strong>  
 					<strong>1234</strong>5    <strong>1234|56</strong>
 				</li>
@@ -57,7 +56,6 @@
 				The second is the plus sign (+), which is used to signify expressions repeated one 
 				or more times. So, "a\d*" would select "a" and "a1", but "a\d+" would only select "a1".
 			</p>
-<script>var answer = '\\w{3,5}';</script>	
 <?php
 	$matches[] = "art";
 	$matches[] = "pizza";  

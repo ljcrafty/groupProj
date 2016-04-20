@@ -42,7 +42,6 @@
 			popcorn, <strong>pop4</strong>
 		</li>
 	</ul>
-<script>var answer = '[hs]andle';</script>
 <?php
 	$matches[] = "handle";
 	$matches[] = "sandle";  

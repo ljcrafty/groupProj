@@ -18,13 +18,13 @@
   	<ul>
   		<li>
   			<strong>Example(1):</strong><br/>
-			Regex: \[\d\]<br/>
-			Result: <strong>[0] [1] [2] [3]</strong> [p] [o]
+			Regex: \[\d\d\]<br/>
+			Result: <strong>[01] [15] [39]</strong> [2] [p] [o]
 		</li>
 		<li>
 			<strong>Example(2):</strong><br/>
-			Regex: \[\W\]<br/>
-			Result: <strong>[-] [$] [@]</strong> [3] [p] [o] [1]
+			Regex: \(\W\)<br/>
+			Result: <strong>(-) ($) (@)</strong> [3] (p) {o} (1)
 		</li>
   	</ul>
   	
@@ -32,6 +32,14 @@
   		Some common metacharacters are:
   	</p>
   	<table>
+  		<tr class="oddTable">
+  			<td class="firstTable">\d</td>
+  			<td>Any digit</td>
+  		</tr>
+  		<tr>
+  			<td class="firstTable">\D</td>
+  			<td>Any non-digit</td>
+  		</tr>
   		<tr class="oddTable">
   			<td class="firstTable">\.</td>
   			<td>Any periods</td>
@@ -45,7 +53,7 @@
   			<td>Any non-alphanumeric character (not a letter or number)</td>
   		</tr>
   		<tr>
-  			<td class="firstTable">\?, \., \\, \+, \*, \^, \$, \{, \}, \(, \), \[, \], \|, \/</td>
+  			<td class="firstTable">\?, \., \\, \+, \*, \^, \$, \(, \), \[, \], \|, \ /</td>
   			<td>Any occurrence of the symbol following the backslash (\) in the text</td>
   		</tr>
   		<tr class="oddTable">
@@ -103,7 +111,6 @@
   			<td>The character given by the unicode number following the backslash (\)</td>
   		</tr>
   	</table>
-<script>var answer = '\\\(\\d\\d\\d\\\)';</script>
 <?php
 	$matches[] = "(123)";
 	$matches[] = "(456)";  

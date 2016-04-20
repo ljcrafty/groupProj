@@ -20,7 +20,6 @@ nav, nav ul, nav ul li, nav ul li a{
 	text-decoration: none;
 	font-size: 13pt;
 	color: #999;
-	text-shadow: 0 1px 1px rgba(0,0,0,0.8);	
 }
 
 nav:before, nav:after, nav > ul:before, nav > ul:after{
@@ -35,6 +34,8 @@ nav{
 	background: #222;
 	min-width: 100%;
 	position: absolute;
+	border-bottom: 1px solid #555;
+	box-sizing: border-box;
 }
 
 .main-menu {
@@ -54,11 +55,13 @@ nav ul li a {
 	display: table-cell;
 	vertical-align: middle;
 	background-color: #222;
+	border-bottom: 1px solid #555;
+	box-sizing: border-box;
 }
 
 nav ul li a:hover{
-	background-color: #76C2DB;
-	border: 1px solid #222222;
+	background-color: #42B5DB;
+	border: 1px solid #555;
 	border-top: none;
 	box-sizing: border-box;
 	color: #222222;
@@ -74,7 +77,7 @@ nav li li a
 {
 	font-weight: normal;
 	font-size: 11pt;
-	border-top: 1px solid #76C2DB;
+	border-bottom: 1px solid #76C2DB;
 	padding: 2px, 5px;
 }
 
@@ -92,6 +95,15 @@ nav li li a
 {
 	width: 250px;
 	display: block;
+}
+
+.main-menu>li:hover>a
+{
+	background-color: #76C2DB;
+	border: 1px solid #555;
+	border-top: none;
+	box-sizing: border-box;
+	color: #222222;
 }
 
 .second-menu {
@@ -142,6 +154,11 @@ h1{
 	background: #eeebe4;
 	border-bottom: 1px solid #42B5DB;
 	font-family: 'Open Sans';
+}
+
+h2
+{
+	margin-top: 40px;
 }
 
 p, .content li
@@ -226,11 +243,18 @@ td
 }
 
 /*feedback area*/
-#feedback
+#feedback, #success
 {
 	padding: 10px;
-	margin: 10px;
+	margin: 10px auto;
 	display: none;
+	text-align: center;
+}
+
+#success
+{
+	border: 2px solid green;
+	background-color: #90db76;
 }
 
 /*user interaction*/
@@ -249,7 +273,7 @@ input
 /*regex tester*/
 .selected
 {
-	background-color: rgb(44,168,209);
+	background-color: #42B5DB;
 	margin: 0 2px;
 }
 

@@ -22,11 +22,11 @@
 				<input type="radio" name="q4" id="a1" value="a1" <?= $_POST["q4"] == "a1" ? "checked" : "" ?> />
 					<label for="a1">A character that randomizes the order of all of the components of an expression</label><br/>
 				<input type="radio" name="q4" id="a2" value="a2" <?= $_POST["q4"] == "a2" ? "checked" : "" ?> />
-					<label for="a1">A period (.) that can represent any possible digit in the text</label><br/>
+					<label for="a2">A period (.) that can represent any possible digit in the text</label><br/>
 				<input type="radio" name="q4" id="a3" value="a3" <?= $_POST["q4"] == "a3" ? "checked" : "" ?> />
-					<label for="a1">A period (.) that can be used as any possible character in the text</label><br/>
+					<label for="a3">A period (.) that can be used as any possible character in the text</label><br/>
 				<input type="radio" name="q4" id="a4" value="a4" <?= $_POST["q4"] == "a4" ? "checked" : "" ?> />
-					<label for="a1">An expression that can select repetitive text</label>
+					<label for="a4">An expression that can select repetitive text</label>
 			</li>
 			<li>
 				If you want to select any word that ends in "arrot", what expression would you use?<br/>

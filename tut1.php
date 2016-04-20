@@ -75,8 +75,6 @@
   	<p>
   		How about you try it?
   	</p>
-  	
-<script>var answer = 'po.';</script>
 <?php
 	$matches[] = "pot";
 	$matches[] = "pop";  

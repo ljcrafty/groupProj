@@ -1,5 +1,12 @@
 <?php 
-	echo "<div id='feedback'></div>
+	echo "<script>
+		var matches = new Array();
+		matches.push('$matches[0]');
+		matches.push('$matches[1]');
+		var butNot = '$but_not';
+		var capture = ".($captures ? "$captures;" : "\"\"").
+	"</script>
+	<span id='feedback'></span>
 	<form action='tut1.php' method='post' onsubmit='return false;'>
   	<p>Find an expression that ".($captures ? "captures:" : "matches:")."</p>
 	<ul>
