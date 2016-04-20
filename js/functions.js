@@ -114,7 +114,7 @@ function validateSingle()//validation for one practice problem
 			}
 			else
 			{
-				error = "Great Job! You've Completed all of the tutorials!";
+				error = "Great Job! You've completed all of the tutorials!";
 				feedback(error, "green");
 			}
 		}
@@ -144,12 +144,12 @@ function checkAnswer(regex, match, butNot, capture)
 			feedback(error, "red");
 		}
 		var group;
-		
+
 		while(group = trueReg.exec(match))
 		{
 			matchSet.push(group);
 		}//cuts regex into capture groups
-		
+
 		for(var i = 0; i < matchSet.length; i++)
 		{
 			if(matchSet[i][0] != match[i])
@@ -158,34 +158,77 @@ function checkAnswer(regex, match, butNot, capture)
 			}
 		}
 	}
-	else
+	else//not capture
 	{
-		for(var i = 0; i < match.length; i++)//check if it matches what it should
-		{
-			matchSet = match[i].match(regex);
-			
-			if(matchSet == null || matchSet.length != 1)//there's only one match
-				return false;
+		if(match.length > 2)//look ahead
+		{	
+			for(var i = 2; i < match.length; i += 2)//matches what it should
+			{
+				matchSet = match[i + 1].match(regex);
 				
-			if(matchSet[0] != match[i])//match is the complete original string
-				return false;
+				if(matchSet == null || matchSet.length < 1)//short circuit no match
+				{
+					return false;
+				}
+				
+				for(var j = 0; j < matchSet.length; j++)
+				{
+					if(matchSet[j] != match[i])
+					{
+						return false;
+					}
+				}
+			}
 		}
-		
+		else//not look ahead
+		{
+			for(var i = 0; i < match.length; i++)//check if it matches what it should
+			{
+				matchSet = match[i].match(regex);
+				console.dir(match);
+				
+				if(matchSet == null || matchSet.length < 1)//short circuit no match
+					return false;
+				
+				if(matchSet.length > 1)//there's more than one match
+				{
+					var matchFound = false;
+					
+					for(var i = 0; i < matchSet.length; i++)
+					{
+						if(matchSet[i] == match[i])
+						{
+							matchFound = true;
+						}
+					}
+					
+					if(!matchFound)
+					{
+						return false;
+					}
+				}
+				else//only one match
+				{
+					if(matchSet[0] != match[i])//match is the complete original string
+						return false;
+				}
+			}
+		}//end not look ahead
 		matchSet = butNot.match(regex);
-		
+
 		if(matchSet == null || matchSet.length == 0)//short circuit no matches
 			return true;
-		
+			
 		for(var i = 0; i < matchSet.length; i++)//checks that it doesn't match what it shouldn't
 		{
 			if(matchSet[i] == butNot)//checks that no matches are exact
 			{
-				return false;
+					return false;
 			}
-		}
-	}
+		}		
+	}// end not capture
 	return true;
-}
+}//end checkAnswer
 
 function showSuccess()
 {
