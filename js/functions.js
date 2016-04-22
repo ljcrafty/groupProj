@@ -271,10 +271,9 @@ function readReg()
 	if(input != null && input != "")
 	{	
 		//array to hold match indicies and lengths
-		var matches = new Array();
 		var repo = document.getElementById("repo");
 		
-		//avoid errors
+		//avoids infinite errors
 		if(input.substr(input.length - 1, 1) == "*")
 		{
 			document.getElementById("error").style.display = "inline-block";
@@ -284,9 +283,16 @@ function readReg()
 			
 		try
 		{
-			//find the text that matches this expression and split it by commas
-			var match = text.match(new RegExp(input, "g"));
+			//find the text that matches this expression
+			var reg = new RegExp(input, "g");
+			var matches = new Array();
+			
+			while(single = reg.exec(text))
+			{
+				matches.push(single);
+			}
 		}
+		
 		//shows a flag if the expression throws an error
 		catch(error)
 		{
@@ -294,29 +300,12 @@ function readReg()
 		}
 			
 		//short circuit for no matches
-		if(match == null)
+		if(matches == null || matches.length < 1)
 		{
 			repo.innerHTML = text;
 			return;
 		}
-		
-		//get rid of duplicates in match
-		match = deleteDuplicates(match);
-			
-		//iterate through every possible match
-		for(var i = 0; i < match.length; i++)
-		{
-			var index = 0;
-			var found = text.indexOf(match[i]);
-				
-			//while there is still a new match, put the index and length of word in matches
-			while(found != -1)
-			{
-				matches.push(new Array(found, match[i].length));//.length counts actual # of characters
-				index = found + match[i].length;
-				found = text.indexOf(match[i], index);
-			}
-		}//now matches has location and length of every matched part of the text
+		//matches has length and index b/c it comes from execute
 			
 		//overlapping sections should take the earliest starting highlight and the longest one
 		matches = sortMatches(matches);
@@ -328,7 +317,7 @@ function readReg()
 			
 		//cut the text into the matched areas and make spans for highlighted areas
 		//takes care of unselected text before the first selection
-		var previous = text.substring(index, matches[0][0]);
+		var previous = text.substring(index, matches[0].index);
 		var node = document.createTextNode(previous);
 		repo.innerHTML = "";
 		repo.appendChild(node);
@@ -338,19 +327,19 @@ function readReg()
 		for(var i = 0; i < matches.length; i++)
 		{
 			//make a span with special class for selected text
-			var selected = text.substr(matches[i][0], matches[i][1]);
+			var selected = text.substr(matches[i].index, matches[i].length);
 			var selText = document.createTextNode(selected);
 			var span = document.createElement("span");
 			span.setAttribute("class", "selected");
 			span.appendChild(selText);
 			repo.appendChild(span);
-			index = matches[i][0] + matches[i][1];
+			index = matches[i].index + matches[i].length;
 			
 			//finds non selected text if any and makes a text node of it
 			if(i == matches.length - 1)
 				var after = text.substring(index, text.length);
 			else
-				var after = text.substring(index, matches[i + 1][0]);
+				var after = text.substring(index, matches[i + 1].index);
 			node = document.createTextNode(after);
 			repo.appendChild(node);
 		}
@@ -361,35 +350,15 @@ function readReg()
 	}
 }
 	
-//deletes matches that match the same text
-function deleteDuplicates(array)
-{
-	var temp = new Array();
-	array.sort();
-	var j = 0;
-		
-	for(var i = 0; i < array.length; i++)
-	{
-		//if the next element is not a duplicate, record this element
-		if(array[i] != array[i+1])//can only be used if array is sorted
-		{
-			temp[j] = array[i];
-			j++;
-		}
-	}
-	return temp;
-}
-	
-//assumes array contains strictly arrays of 2 number items
+//assumes array contains objects from exec call
 function sortMatches(array)
 {
 	//short circuit
 	if(array.length < 2)
 		return array;
 		
-	var temp = new Array();
+	var temp = new Array(), small = new Array(), large = new Array();
 	var pivot = array[Math.round(array.length / 2)];
-	var small = new Array(), large = new Array();
 		
 	//temp array, replace old if start at same place and is longer
 	//possibly do this when you're getting matches?
@@ -401,7 +370,7 @@ function sortMatches(array)
 		else
 		{
 			//put before pivot
-			if(array[j][0] < pivot[0] || (array[j][0] == pivot[0] && array[j][1] < pivot[1]))
+			if(array[j].index < pivot.index || (array[j].index == pivot.index && array[j].length < pivot.length))
 			{
 				small.push(array[j]);
 			}
@@ -437,21 +406,21 @@ function deleteOverlap(matches)
 		//for last item in array
 		if(i == matches.length - 1)
 		{
-			if(end <= matches[i][0])
+			if(end <= matches[i].index)
 				temp.push(matches[i]);
 		}
 		else
 		{
 			//only adds the longest of matches that start at the same index
-			if(matches[i + 1][0] != matches[i][0])
+			if(matches[i + 1].index != matches[i].index)
 			{
 				//make sure previous matches didn't end after this one
-				if(end <= matches[i][0])
+				if(end <= matches[i].index)
 				{
 					temp.push(matches[i]);
 					
 					//show where this match would end
-					end = matches[i][0] + matches[i][1];
+					end = matches[i].index + matches[i].length;
 				}
 			}
 		}

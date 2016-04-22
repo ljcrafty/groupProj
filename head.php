@@ -10,18 +10,18 @@
   </head>
   <body onload="showSuccess();">
     <nav>			
-		<div class = "inner-section">
-			<ul class = "main-menu"> 	
+		<!--<div class = "inner-section">-->
+			<ul> 	
 				<li><a href = 'index.php'>Home</a></li>
 				<li>
-					<a href = '#'>Tools</a>
+					<a href = '#'>Tools &#9660;</a>
 					<ul>
 						<li><a href="test.php">Regular Expression Tester</a></li>
 						<li><a href="extra.php">Extra help</a></li>
 					</ul>
 				</li>
 				<li>
-					<a href = '#'>Tutorials</a>
+					<a href = '#'>Tutorials &#9660;</a>
 					<ul>
 						<li><a href="tut1.php">Topic 1: Simple Expressions</a></li>
 						<li><a href="tut2.php">Topic 2: Character Sets</a></li>
@@ -33,7 +33,7 @@
 					</ul>
 				</li>
 				<li>
-					<a href = '#'>Quizzes</a>
+					<a href = '#'>Quizzes &#9660;</a>
 					<ul>
 						<li><a href="quiz1.php">Topic 1: Simple Expressions</a></li>
 						<li><a href="quiz2.php">Topic 2: Character Sets</a></li>
@@ -49,7 +49,8 @@
 			</ul>
 		</div>
 	</nav>	
+	<h1 class="header-container"><?=($head ? $head : $title )?></h1>
 	<div class="content">
 		<div id="success">Great Job! Keep going with this new section!</div>
-  		<h1><?=($head ? $head : $title )?></h1>
+  		
 	

@@ -8,138 +8,92 @@ html, body
 }
 
 /*nav*/
-.inner-section {
-	max-width: 85%;
-	margin: 0 auto;
-}
-
-nav, nav ul, nav ul li, nav ul li a{
+nav ul, nav ul li, nav ul li ul{
 	padding: 0;
 	margin: 0;
-	font-weight: bold;
-	text-decoration: none;
-	font-size: 13pt;
-	color: #999;
-}
-
-nav:before, nav:after, nav > ul:before, nav > ul:after{
-	content: '';
-	display: table;
-	clear: both;
-	height: 0;
 }
 
 nav{
-	height: 69px;
-	background: #222;
-	min-width: 100%;
-	position: absolute;
-	border-bottom: 1px solid #555;
-	box-sizing: border-box;
+	background-color: #333;	
+	padding: 0 13%;
 }
 
-.main-menu {
-	height: 69px;
+nav:before, nav:after, nav>ul:before, nav>ul:after{
+	content: '';
+	clear: both;
+	display: block;
 }
 
-nav ul li {
-	float: left;
+nav ul{
+	background: #333;
 	list-style: none;
+}
+
+nav ul li{
+	float: left;
+	position: relative;
 }
 
 nav ul li a {
+	padding: 23px 38px;
 	display: block;
-	height: 69px;
-	width: 250px;
-	text-align: center;
-	display: table-cell;
-	vertical-align: middle;
-	background-color: #222;
-	border-bottom: 1px solid #555;
-	box-sizing: border-box;
-}
-
-nav ul li a:hover{
-	background-color: #42B5DB;
-	border: 1px solid #555;
-	border-top: none;
-	box-sizing: border-box;
-	color: #222222;
-}
-
-nav li>ul
-{
-	width: 100%;
-	display: none;
-}
-
-nav li li a
-{
-	font-weight: normal;
-	font-size: 11pt;
-	border-bottom: 1px solid #76C2DB;
-	padding: 2px, 5px;
-}
-
-.main-menu>li
-{
-	width: 16%;
-}
-
-.main-menu li li
-{
-	width: 100%;
-}
-
-.main-menu>li:hover ul
-{
-	width: 250px;
-	display: block;
-}
-
-.main-menu>li:hover>a
-{
-	background-color: #76C2DB;
-	border: 1px solid #555;
-	border-top: none;
-	box-sizing: border-box;
-	color: #222222;
-}
-
-.second-menu {
-	padding-right: 280px;
-}
-
-.second-menu, .second-menu ul, .second-menu ul li, .second-menu ul li a {
-	
-}
-
-.second-menu ul {
-	list-style: none;
-	width: 200px;
-	background-color: #f1f1f1;
-}
-
-.second-menu ul a {
-	display: block;
-	color: #000;
-	padding: 8px 0 8px 16px;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
 	text-decoration: none;
-} 
+	line-height: 20px;
+}
 
-.second-menu li a:hover {
-    background-color: #555;
-    color: white;
+nav > ul > li:hover > a{
+	background: #e82c0c;
+}
+
+nav > ul > li.active > a, nav > ul > li > a:active{
+	background: #bfbab5;
+	color: #333;
+}
+
+nav > ul ul {
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	background-color: #333;
+}
+
+nav > ul li:hover ul{
+	opacity: 1;
+	visibility: visible;
+	top: 64px;
+	left: 0;
+}
+
+nav > ul ul li {
+	list-style: none;
+}
+
+nav > ul ul li a{
+	padding: 18px 26px;
+	display: block;
+	color: #fff;
+	font-size: 13px;
+	text-decoration: none;
+	width: 180px;
+	transition: all 0.25s ease-in-out;
+}
+
+nav > ul ul li:hover a{
+	background: #bfbab5;
 }
 
 /*content stuff*/
 .content{
 	margin: 0 auto;
-	padding-top: 10%;
+	padding-top: 15px;
 	padding-bottom: 3%;
 	padding-right: 15%;
 	padding-left: 15%;
 	min-height: 66%;
+	overflow: auto;
 }
 
 .container {
@@ -147,12 +101,14 @@ nav li li a
 	margin-bottom: 50px;
 }
 
-h1{
+.header-container{
 	margin: 0 auto;
 	padding-top: 50px;
 	padding-bottom: 20px;
+	padding-right: 280px;
+	padding-left: 280px;
 	background: #eeebe4;
-	border-bottom: 1px solid #42B5DB;
+	border-bottom: 1px solid #999;
 	font-family: 'Open Sans';
 }
 
@@ -184,6 +140,18 @@ p, .content li
 .content a:hover
 {
 	color: #76C2DB;
+}
+
+.inner-container{
+	border: 1px #333 solid;
+	box-shadow: inset 0 0 5px #000;
+	padding: 15px;
+}
+
+.inner-container-practice{
+	padding: 20px;
+	border: 1px #333 solid;
+	box-shadow: inset 0 0 5px #000;
 }
 
 /*Appendix-specific*/
@@ -251,6 +219,11 @@ td
 	text-align: center;
 }
 
+#feedback ul
+{
+	list-style-type: none;
+}
+
 #success
 {
 	border: 2px solid green;
@@ -287,11 +260,62 @@ input
 	margin: 0 10px;	
 }
 
-footer {
-	position: absolute;
-	text-align: center;
-	width: 94%;
+footer {	
 	background-color: #222;
-	color: white;
-	padding: 3%;
+	text-align: center;
+	color: #fff;
+	height: 20px;	
+	bottom: 0;	
+	padding: 25px;
+	position: relative;
+	clear: both;
+	height: 30px;
+	line-height: 15px;
+}
+
+/* index.php form */
+#form {
+	border: 1px #333 solid;
+	box-shadow: inset 0 0 5px #000;
+	padding: 30px;
+}
+
+#inner-form {
+	border: 1px #b7b7b7 solid;
+	padding: 10px 30px;
+}
+
+input[type=text] {
+	width: 15%;
+	padding: 5px 10px;
+    display: inline-block;
+    border: 1px solid #b7b7b7;
+    border-radius: 7px;
+    box-sizing: border-box;
+}
+
+textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #b7b7b7;
+    border-radius: 7px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #B3B3F1;
+    color: white;
+	font-weight:bold;
+    padding: 14px 20px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #5c5ce1;
 }
