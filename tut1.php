@@ -18,9 +18,9 @@
 		<p>
 			Say you are looking through a book you plan on giving to a child. You want to 
 			see if the book has any information about the child's favorite animal: the 
-			kangaroo. If you were using regular expressions, you could just type "kangaroo" 
+			kangaroo. If you were using regular expressions, you could just type <code>kangaroo</code>
 			and it would match every instance of the word in the whole book. Or, say you 
-			want to teach the child to count up to ten. By searching "10", it would match 
+			want to teach the child to count up to ten. By searching <code>10</code>, it would match 
 			every time "1" and "0" were next to each other in the text. White space characters 
 			matter when you are making regular expressions. So, if you have spaces in your 
 			expression, it will only match text with those same spaces.
@@ -36,8 +36,8 @@
 			<ul>
 				<li>
 					<strong>Example(1):</strong><br/>
-					Regex: Pop<br/>
-					Result: Potato<strong>Pop Pop</strong> abc<strong>Pop</strong>def <strong>Pop
+					<strong>Regex:</strong> <code>Pop</code><br/>
+					<strong>Result:</strong> Potato<strong>Pop Pop</strong> abc<strong>Pop</strong>def <strong>Pop
 					</strong>tart potato
 				</li>
 				<li>
