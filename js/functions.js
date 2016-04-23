@@ -234,6 +234,8 @@ function showSuccess()
 {
 	if (window.location.hash === "#success")
 		document.getElementById("success").style.display = "block";
+	else
+		document.getElementById("success").style.display = "none";
 }
 
 function feedback( error, color )
@@ -248,6 +250,8 @@ function feedback( error, color )
 	}
 	else
 	{
+		window.location.hash = "";
+		showSuccess();
 		div.style.backgroundColor = "pink";
 		div.style.border = "2px solid red";
 	}
