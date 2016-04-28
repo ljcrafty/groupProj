@@ -35,6 +35,6 @@
 		<li>$but_not</li>
 	</ul>": '')."
 	<input type='text' size='30' />
-	<input type=\"submit\" name=\"submit\" value=\"Continue ->\"/ onclick='validateSingle();'>
+	<input type=\"submit\" name=\"submit\" value=\"Continue &#x21FE;\"/ onclick='validateSingle();'>
 </form>"
 ?>

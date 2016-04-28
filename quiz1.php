@@ -33,7 +33,7 @@
 				<input type="text" size="30" name="q5" value="<?= $_POST["q5"] ?>"/>
 			</li><!--.arrot-->
 		</ol>
-		<input type="submit" name="submit" value="Continue ->"/>
+		<input type="submit" name="submit" value="Continue &#8594;"/>
 		</form>
 	</div>
 

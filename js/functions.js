@@ -267,7 +267,7 @@ function readReg()
 			"JUMPED OVER THE LAZY DOG? The Quick Brown Fox Jumped Over The Lazy " + 
 			"Dog! My phone number is (145)234-5678. Email: panda8024@potato.com " + 
 			"192.168.000.100 1-800-CALLNOW #$%^&*<>-=+{}[]\|/,;\"";
-		
+	
 	//resets the error flag
 	document.getElementById("error").style.display = "none";
 		
@@ -276,84 +276,94 @@ function readReg()
 	{	
 		//array to hold match indicies and lengths
 		var repo = document.getElementById("repo");
-		
-		//avoids infinite errors
-		if(input.substr(input.length - 1, 1) == "*")
-		{
-			document.getElementById("error").style.display = "inline-block";
-			repo.innerHTML = text;
-			return;
-		}
-			
+
+		//find the text that matches this expression
 		try
 		{
-			//find the text that matches this expression
 			var reg = new RegExp(input, "g");
-			var matches = new Array();
-			
-			while(single = reg.exec(text))
-			{
-				matches.push(single);
-			}
 		}
-		
 		//shows a flag if the expression throws an error
 		catch(error)
 		{
 			document.getElementById("error").style.display = "inline-block";
-		}
-			
-		//short circuit for no matches
-		if(matches == null || matches.length < 1)
-		{
-			repo.innerHTML = text;
 			return;
 		}
-		//matches has length and index b/c it comes from execute
+		
+		var matches = new Array();
 			
-		//overlapping sections should take the earliest starting highlight and the longest one
-		matches = sortMatches(matches);
-		matches = deleteOverlap(matches); 
-		console.dir(matches);
+		var collector = new Worker("js/collectMatches.js");
+		var working = true;
+		
+		collector.postMessage([text, reg]);
 			
-		//necessary to keep track after string lengths
-		index = 0;
-			
-		//cut the text into the matched areas and make spans for highlighted areas
-		//takes care of unselected text before the first selection
-		var previous = text.substring(index, matches[0].index);
-		var node = document.createTextNode(previous);
-		repo.innerHTML = "";
-		repo.appendChild(node);
-			
-			
-		//matches is now an ordered array of pairs of ints for the start and length of selected text
-		for(var i = 0; i < matches.length; i++)
+		collector.onmessage = function(data)
 		{
-			//make a span with special class for selected text
-			var selected = text.substr(matches[i].index, matches[i].length);
-			var selText = document.createTextNode(selected);
-			var span = document.createElement("span");
-			span.setAttribute("class", "selected");
-			span.appendChild(selText);
-			repo.appendChild(span);
-			index = matches[i].index + matches[i].length;
+			matches = data.data;
+			working = false;
 			
-			//finds non selected text if any and makes a text node of it
-			if(i == matches.length - 1)
-				var after = text.substring(index, text.length);
-			else
-				var after = text.substring(index, matches[i + 1].index);
-			node = document.createTextNode(after);
+			//short circuit for no matches
+			if(matches == null || matches.length < 1)
+			{
+				repo.innerHTML = text;
+				console.log(matches);
+				return;
+			}
+			//matches has length and index b/c it comes from execute
+				
+			//overlapping sections should take the earliest starting highlight and the longest one
+			matches = sortMatches(matches);
+			matches = deleteOverlap(matches);
+				
+			//necessary to keep track after string lengths
+			index = 0;
+				
+			//cut the text into the matched areas and make spans for highlighted areas
+			//takes care of unselected text before the first selection
+			var previous = text.substring(index, matches[0].index);
+			var node = document.createTextNode(previous);
+			repo.innerHTML = "";
 			repo.appendChild(node);
-		}
+				
+				
+			//matches is now an ordered array of pairs of ints for the start and length of selected text
+			for(var i = 0; i < matches.length; i++)
+			{
+				//make a span with special class for selected text
+				var selected = text.substr(matches[i].index, matches[i][0].length);
+				var selText = document.createTextNode(selected);
+				var span = document.createElement("span");
+				span.setAttribute("class", "selected");
+				span.appendChild(selText);
+				repo.appendChild(span);
+				index = matches[i].index + matches[i][0].length;
+				
+				//finds non selected text if any and makes a text node of it
+				if(i == matches.length - 1)
+					var after = text.substring(index, text.length);
+				else
+					var after = text.substring(index, matches[i + 1].index);
+				node = document.createTextNode(after);
+				repo.appendChild(node);
+			}
+		};
+			
+		setTimeout(function()
+		{
+			if(working)
+			{
+				collector.terminate();
+				document.getElementById("error").style.display = "inline-block";
+				repo.innerHTML = text;
+				return;
+			}	
+		}, 500);
 	}
 	else
 	{
 		document.getElementById("repo").innerHTML = text;
 	}
 }
-	
+
 //assumes array contains objects from exec call
 function sortMatches(array)
 {
@@ -374,7 +384,7 @@ function sortMatches(array)
 		else
 		{
 			//put before pivot
-			if(array[j].index < pivot.index || (array[j].index == pivot.index && array[j].length < pivot.length))
+			if(array[j].index < pivot.index || (array[j].index == pivot.index && array[j][0].length < pivot[0].length))
 			{
 				small.push(array[j]);
 			}
@@ -404,7 +414,7 @@ function deleteOverlap(matches)
 {
 	var temp = new Array();
 	var end = 0;
-		
+	
 	for(var i = 0; i < matches.length; i++)
 	{
 		//for last item in array
@@ -424,7 +434,7 @@ function deleteOverlap(matches)
 					temp.push(matches[i]);
 					
 					//show where this match would end
-					end = matches[i].index + matches[i].length;
+					end = matches[i].index + matches[i][0].length;
 				}
 			}
 		}
