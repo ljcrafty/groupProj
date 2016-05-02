@@ -305,11 +305,10 @@ function readReg()
 			if(matches == null || matches.length < 1)
 			{
 				repo.innerHTML = text;
-				console.log(matches);
 				return;
 			}
 			//matches has length and index b/c it comes from execute
-				
+				console.dir(matches);
 			//overlapping sections should take the earliest starting highlight and the longest one
 			matches = sortMatches(matches);
 			matches = deleteOverlap(matches);
