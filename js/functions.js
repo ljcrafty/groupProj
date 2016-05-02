@@ -308,7 +308,7 @@ function readReg()
 				return;
 			}
 			//matches has length and index b/c it comes from execute
-				console.dir(matches);
+				
 			//overlapping sections should take the earliest starting highlight and the longest one
 			matches = sortMatches(matches);
 			matches = deleteOverlap(matches);
@@ -318,7 +318,7 @@ function readReg()
 				
 			//cut the text into the matched areas and make spans for highlighted areas
 			//takes care of unselected text before the first selection
-			var previous = text.substring(index, matches[0].index);
+			var previous = text.substring(index, matches[0][0].index);
 			var node = document.createTextNode(previous);
 			repo.innerHTML = "";
 			repo.appendChild(node);
@@ -328,19 +328,19 @@ function readReg()
 			for(var i = 0; i < matches.length; i++)
 			{
 				//make a span with special class for selected text
-				var selected = text.substr(matches[i].index, matches[i][0].length);
+				var selected = text.substr(matches[i][0].index, matches[i][0][0].length);
 				var selText = document.createTextNode(selected);
 				var span = document.createElement("span");
 				span.setAttribute("class", "selected");
 				span.appendChild(selText);
 				repo.appendChild(span);
-				index = matches[i].index + matches[i][0].length;
+				index = matches[i][0].index + matches[i][0][0].length;
 				
 				//finds non selected text if any and makes a text node of it
 				if(i == matches.length - 1)
 					var after = text.substring(index, text.length);
 				else
-					var after = text.substring(index, matches[i + 1].index);
+					var after = text.substring(index, matches[i + 1][0].index);
 				node = document.createTextNode(after);
 				repo.appendChild(node);
 			}
@@ -383,7 +383,8 @@ function sortMatches(array)
 		else
 		{
 			//put before pivot
-			if(array[j].index < pivot.index || (array[j].index == pivot.index && array[j][0].length < pivot[0].length))
+			if(array[j][0].index < pivot[0].index || 
+				(array[j][0].index == pivot[0].index && array[j][0][0].length < pivot[0][0].length))
 			{
 				small.push(array[j]);
 			}
@@ -419,21 +420,21 @@ function deleteOverlap(matches)
 		//for last item in array
 		if(i == matches.length - 1)
 		{
-			if(end <= matches[i].index)
+			if(end <= matches[i][0].index)
 				temp.push(matches[i]);
 		}
 		else
 		{
 			//only adds the longest of matches that start at the same index
-			if(matches[i + 1].index != matches[i].index)
+			if(matches[i + 1][0].index != matches[i][0].index)
 			{
 				//make sure previous matches didn't end after this one
-				if(end <= matches[i].index)
+				if(end <= matches[i][0].index)
 				{
 					temp.push(matches[i]);
 					
 					//show where this match would end
-					end = matches[i].index + matches[i][0].length;
+					end = matches[i][0].index + matches[i][0][0].length;
 				}
 			}
 		}
