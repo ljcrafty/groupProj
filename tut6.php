@@ -15,7 +15,7 @@
 			expression. This means that if you want to have the same few letters multiple places 
 			in the match, you can specify that. The syntax for back referencing is very simple. 
 			If you want to back reference the first capture in the expression, you use backslash 
-			(\) 1. So, "(she) sold \1lls" would match "she sold shells".
+			(<code>\</code>) 1. So, <code>(she) sold \1lls</code> would match "she sold shells".
 		</p>
 	</div>
 	
@@ -43,8 +43,8 @@
 				<ul>
 					<li>
 						The regex engine only temporarily stores backreferences.  New matches saved in the 
-						backreference overwrite old matches.  For example, if we used the expressions "([a-z]+)" 
-						and "([a-z])+", and we're trying to match "pop", the first expression stores "pop", 
+						backreference overwrite old matches.  For example, if we used the expressions <code>([a-z]+)</code> 
+						and <code>([a-z])+</code>, and we're trying to match "pop", the first expression stores "pop", 
 						but the second stores only the last "p", because it repeats three times, storing "p", 
 						"o", and "p" in order, overwriting the previous value as it moves forward.
 					</li>

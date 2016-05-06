@@ -9,7 +9,7 @@
 			expression. So, if you wanted to output the full date and just the day of the 
 			month, you would be able to in one expression instead of two. Marked sub-expressions 
 			are also called captures because they capture the part of the expression in between 
-			the parentheses (( )) that mark them.      
+			the parentheses (<code>( )</code>) that mark them.      
 		</p>
 	</div>
 	
@@ -30,8 +30,7 @@
 			If you want to group an expression without capturing it, you can use un-marked 
 			sub-expressions. These are useful to repeat parts of expressions that are complex 
 			or multi-character. So, in this case, you can use unmarked sub-expressions, denoted 
-			by parentheses (( )), a question mark (?), a colon (:), and then the expression 
-			you want to group without marking.
+			<code>(?: x)</code> where x is the expression you want to group without marking.
 		</p>
 	</div>
 	

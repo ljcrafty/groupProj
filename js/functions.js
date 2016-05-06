@@ -160,7 +160,7 @@ function checkAnswer(regex, match, butNot, capture)
 	}
 	else//not capture
 	{
-		if(match.length > 2)//look ahead
+		if(Array.isArray(match) && match.length > 2)//look ahead
 		{	
 			for(var i = 2; i < match.length; i += 2)//matches what it should
 			{
@@ -185,8 +185,7 @@ function checkAnswer(regex, match, butNot, capture)
 			for(var i = 0; i < match.length; i++)//check if it matches what it should
 			{
 				matchSet = match[i].match(regex);
-				console.dir(match);
-				
+				console.dir(match[i]);
 				if(matchSet == null || matchSet.length < 1)//short circuit no match
 					return false;
 				

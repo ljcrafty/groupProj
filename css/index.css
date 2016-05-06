@@ -160,6 +160,11 @@ p, .content li
 	
 }
 
+strong
+{
+	color: #3ba2c5;
+}
+
 /*Appendix-specific*/
 #dictionaryList
 {

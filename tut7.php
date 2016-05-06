@@ -14,20 +14,18 @@
 			before or after the text you're matching, without matching that text. Look ahead, 
 			as it sounds, matches based on what is immediately after the matched text in the 
 			original document. Look behind does the opposite, though it is not available in 
-			JavaScript. The syntax for look ahead is parentheses (( )), a question mark (?), an 
-			equals sign (=), and then the expression that you expect after the match. Look behind 
-			syntax is parentheses (( )), a question mark (?), an exclamation mark (!), and then 
-			the expression you expect before the match. So, "\d(?= px)" would select the "1" 
-			from "1px", but not from "1 pop". For example, "t(?!a)" will match the t in potato 
-			that is not followed by the a.
+			JavaScript. The syntax for look ahead is <code>(?= x)</code> where x is the expression 
+			that you expect after the match. So, <code>\d(?= px)</code> would select the 1 
+			from "1px", but not from "1 pop". Look behind syntax is <code>(?&lt;= x)</code> where x is 
+			the expression you expect before the match.
 		</p>
 		<p>
 			There is also a negation of the two look around commands called negative look ahead 
 			and negative look behind. These are just like look ahead and look behind, except that 
 			they accept only matches that do not have the given expression before/after them. 
 			Negative look around syntax is just like normal look around syntax with a less-than 
-			sign (<) after the question mark (?). So, "\w(?<! ab)" would select the "c" in "cab", 
-			but not the "b" in "abby".
+			sign (&lt;) instead of the equals sign (<code>=</code>). So, <code>\w(?&lt;! ab)</code> would 
+			select the "c" in "cab", but not the second "b" in "abby".
 		</p>
 	</div>
 	
@@ -35,20 +33,20 @@
 		<div class = "inner-container">
 			<ul>
 				<li>
-					<strong>Example(1) look ahead:</strong><br/>
-					Regex: .+(?=:)<br/>
+					<strong>Example(1):</strong><br/>
+					Regex: <code>.+(?=:)</code><br/>
 					Result: <strong>http</strong>://www.potatopop.com   
 					<strong>https</strong>://www.google.com
 				</li>
 				<li>
-					<strong>Example(2) look ahead:</strong><br/>
+					<strong>Example(2):</strong><br/>
 					Regex: .+(?=dollar)<br/>
 					Result: <strong>100</strong>dollar   <strong>200</strong>dollar  
 					<strong>pi</strong>dollar
 				</li>
 				<li>
-					<strong>Example(3) look behind:</strong><br/>
-					Regex: (?<=\@)[0-9.]+<br/>
+					<strong>Example(3):</strong><br/>
+					Regex: (?&lt;=\@)[0-9.]+<br/>
 					Result: @<strong>123</strong>   @<strong>567</strong>   @<strong>888</strong>
 				</li>
 			</ul>

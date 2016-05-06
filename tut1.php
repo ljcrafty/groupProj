@@ -59,8 +59,8 @@
 			Now, what if you are looking for the Dr. Seuss book, "Hop on Pop"? You wouldn't 
 			want to just look for "hop", or just for "pop". So, what you could do is use what's 
 			called a wildcard. A wildcard lets you use any character in the space it occupies. 
-			So, if you had the regex, ".op", it would select both "hop" and "pop" because the 
-			period (.) is a wildcard character.
+			So, if you had the regex, <code>.op</code>, it would select both "hop" and "pop" 
+			because the period (<code>.</code>) is a wildcard character.
 		</p>
 	</div>
 	
