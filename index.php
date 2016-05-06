@@ -1,6 +1,52 @@
 <?php $title = "Introduction";
 	$head = "Frequently Asked Questions";
-	require("head.php"); ?>
+	require("head.php"); 
+
+	require("../db_conn.php");
+	$link = new mysqli($db_host, $db_user, $db_pass, $db_name);
+	
+	//check for connection errors
+	if(!$link)
+	{
+		echo "Connection error:" . mysqli_connection_error();
+		die();
+	}
+	
+	//if new info to add to db
+	if(!empty($_POST))
+	{
+		//sanitize data
+		$name = mysqli_escape_characters($link, trim(htmlentities($_POST["name"])));
+		$comment = mysqli_escape_characters($link, trim(htmlentities($_POST["comment"])));
+		
+		//validate data
+		if($name && $comment)
+		{
+			//create query
+			$query = "INSERT INTO stories
+				SET name = '$name',
+					comment = '$comment'";
+			
+			//send query		
+			$response = mysqli_query($link, $query);
+			$rows = mysqli_affected_rows($link);
+			
+			//give feedback
+			if($rows > 0 && $response)
+			{
+				$feedback = $name . "'s comment was added successfully!";
+			}
+			else 
+			{
+				$error = "There was an error adding your comment.";
+			}
+		}
+		else 
+		{
+			$error = "Please enter values for all of the fields.";
+		}
+	}
+?>
 	<!-- Lauren Johnston: set up basic html and php includes 4/4/16-->		
 
 			<div class = "container">
@@ -47,11 +93,25 @@
 					your story! Give some tips to first time regular expression users, share that expression 
 					you've just perfected, or even just share your experience learning with our site.
 				</p>
-				<div id="inner-form">
+				
+				<div id="response">
+					<?php
+						if($feedback)
+						{
+							echo "<p class='success'" . $feedback . "</p>";
+						}
+						if($error)
+						{
+							echo "<p class='error'" . error . "</p>";
+						}
+					?>
+				</div>
+				
+				<form action="index.php" method="POST" onsubmit="return validate();" id="inner-form" >
 					<span>Name:</span><input type="text" name="name" size="30"/>
 					<div>Comment:</div><textarea name="comment"></textarea><br/>
 					<input type="submit" name="submit"/>	
-				</div>
+				</form>
 			</div>	
 		</div>
 

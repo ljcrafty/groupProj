@@ -190,7 +190,32 @@ p, .content li
 
 #dictionaryList li a:hover
 {
+	color: black;
 	background-color: #76c2db;
+}
+
+.def
+{
+	background-color: #76C2DB;
+	width: 600px;
+	margin: 20px auto;
+	border-radius: 5px;
+	border: 3px solid #42B5DB;
+	padding: 0 20px;
+}
+
+.term
+{
+	font-weight: bold;
+	margin-bottom: 5px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #333333;
+}
+
+.definition
+{
+	margin-left: 50px;
+	margin-top: 5px;
 }
 
 /*tables*/

@@ -296,6 +296,17 @@ function readReg()
 		
 		collector.postMessage([text, reg]);
 			
+		setTimeout(function()
+		{
+			if(working)
+			{
+				collector.terminate();
+				document.getElementById("error").style.display = "inline-block";
+				repo.innerHTML = text;
+				return;
+			}	
+		}, 500);
+		
 		collector.onmessage = function(data)
 		{
 			matches = data.data;
@@ -345,17 +356,6 @@ function readReg()
 				repo.appendChild(node);
 			}
 		};
-			
-		setTimeout(function()
-		{
-			if(working)
-			{
-				collector.terminate();
-				document.getElementById("error").style.display = "inline-block";
-				repo.innerHTML = text;
-				return;
-			}	
-		}, 500);
 	}
 	else
 	{
