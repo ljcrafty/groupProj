@@ -1,4 +1,9 @@
-function validate()
+function byId(ele)
+{
+	return document.getElementById(ele);
+}
+
+function validateQuiz()
 {
 	var inputs = document.getElementsByTagName("input");
 	var error = "";
@@ -72,7 +77,7 @@ function validate()
 			if(quiz < 7)
 			{
 				window.location = "quiz" + number + ".php";
-				document.getElementById("success").style.display = "block";
+				byId("success").style.display = "block";
 			}
 			else
 			{
@@ -128,6 +133,32 @@ function validateSingle()//validation for one practice problem
 	return false;
 }//end validateSingle
 
+function validateStory()
+{
+	var formEle = document.forms[0].children;
+	var error = "";
+		
+	for(var i = 0; i < formEle.length - 1; i++)//skips the submit button
+	{
+		if((typeof formEle[i] == "input" || typeof formEle[i] == "textarea") && formEle[i].value == "")
+		{
+			error += "<li>" + formEle[i].name + "</li>";
+		}
+	}
+	
+	if(error)
+	{
+		feedback("<p>Please complete the following items before you add your comment:</p><ul>" +
+			error + "</ul>", "red");
+		
+		return false;
+	}
+	else
+	{
+		feedback("Your comment has been added successfully!", "green");
+	}
+}
+
 function checkAnswer(regex, match, butNot, capture)
 {
 	var matchSet = new Array();
@@ -160,7 +191,7 @@ function checkAnswer(regex, match, butNot, capture)
 	}
 	else//not capture
 	{
-		if(Array.isArray(match) && match.length > 2)//look ahead
+		if(match.length > 2)//look ahead
 		{	
 			for(var i = 2; i < match.length; i += 2)//matches what it should
 			{
@@ -181,11 +212,11 @@ function checkAnswer(regex, match, butNot, capture)
 			}
 		}
 		else//not look ahead
-		{
+		{	
 			for(var i = 0; i < match.length; i++)//check if it matches what it should
 			{
 				matchSet = match[i].match(regex);
-				console.dir(match[i]);
+				
 				if(matchSet == null || matchSet.length < 1)//short circuit no match
 					return false;
 				
@@ -213,6 +244,7 @@ function checkAnswer(regex, match, butNot, capture)
 				}
 			}
 		}//end not look ahead
+		
 		matchSet = butNot.match(regex);
 
 		if(matchSet == null || matchSet.length == 0)//short circuit no matches
@@ -229,17 +261,22 @@ function checkAnswer(regex, match, butNot, capture)
 	return true;
 }//end checkAnswer
 
+function checkSingle(regex, match, butNot, capture)
+{
+	
+}
+
 function showSuccess()
 {
 	if (window.location.hash === "#success")
-		document.getElementById("success").style.display = "block";
+		byId("success").style.display = "block";
 	else
-		document.getElementById("success").style.display = "none";
+		byId("success").style.display = "none";
 }
 
 function feedback( error, color )
 {
-	var div = document.getElementById("feedback");
+	var div = byId("feedback");
 	div.innerHTML = error;//happens no matter what
 	
 	if(color == "green")
@@ -261,20 +298,20 @@ function feedback( error, color )
 function readReg()
 {
 	//base text and user input regex
-	var input = document.getElementById("regex").value; 
+	var input = byId("regex").value; 
 	var text = "The quick brown fox jumped over the lazy dog. THE QUICK BROWN FOX " +  
 			"JUMPED OVER THE LAZY DOG? The Quick Brown Fox Jumped Over The Lazy " + 
 			"Dog! My phone number is (145)234-5678. Email: panda8024@potato.com " + 
 			"192.168.000.100 1-800-CALLNOW #$%^&*<>-=+{}[]\|/,;\"";
 	
 	//resets the error flag
-	document.getElementById("error").style.display = "none";
+	byId("error").style.display = "none";
 		
 	//if there is input
 	if(input != null && input != "")
 	{	
 		//array to hold match indicies and lengths
-		var repo = document.getElementById("repo");
+		var repo = byId("repo");
 
 		//find the text that matches this expression
 		try
@@ -284,7 +321,7 @@ function readReg()
 		//shows a flag if the expression throws an error
 		catch(error)
 		{
-			document.getElementById("error").style.display = "inline-block";
+			byId("error").style.display = "inline-block";
 			return;
 		}
 		
@@ -300,7 +337,7 @@ function readReg()
 			if(working)
 			{
 				collector.terminate();
-				document.getElementById("error").style.display = "inline-block";
+				byId("error").style.display = "inline-block";
 				repo.innerHTML = text;
 				return;
 			}	
@@ -358,7 +395,7 @@ function readReg()
 	}
 	else
 	{
-		document.getElementById("repo").innerHTML = text;
+		byId("repo").innerHTML = text;
 	}
 }
 

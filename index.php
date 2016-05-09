@@ -16,8 +16,8 @@
 	if(!empty($_POST))
 	{
 		//sanitize data
-		$name = mysqli_escape_characters($link, trim(htmlentities($_POST["name"])));
-		$comment = mysqli_escape_characters($link, trim(htmlentities($_POST["comment"])));
+		$name = mysqli_escape_string($link, trim(htmlentities($_POST["name"])));
+		$comment = mysqli_escape_string($link, trim(htmlentities($_POST["comment"])));
 		
 		//validate data
 		if($name && $comment)
@@ -94,25 +94,46 @@
 					you've just perfected, or even just share your experience learning with our site.
 				</p>
 				
-				<div id="response">
+				<div id="feedback">
 					<?php
 						if($feedback)
 						{
-							echo "<p class='success'" . $feedback . "</p>";
+							echo "<p id='success'" . $feedback . "</p>";
 						}
 						if($error)
 						{
-							echo "<p class='error'" . error . "</p>";
+							echo "<p id='error'" . error . "</p>";
 						}
 					?>
 				</div>
 				
-				<form action="index.php" method="POST" onsubmit="return validate();" id="inner-form" >
-					<span>Name:</span><input type="text" name="name" size="30"/>
-					<div>Comment:</div><textarea name="comment"></textarea><br/>
+				<form action="index.php" method="POST" onsubmit="return validateStory();" id="inner-form" >
+					<span>Name:</span><input type="text" name="name" size="30" <?= ($error ? "value='$name'" : "") ?>/>
+					<div>Comment:</div><textarea name="comment"><?= ($error ? "$comment" : "") ?></textarea><br/>
 					<input type="submit" name="submit"/>	
 				</form>
-			</div>	
-		</div>
+			</div>
+			<div id="otherStory">
+				<h1>Others' Stories</h1>
+			
+				<?php
+					#already connected to DB in above PHP block
+					$query = "SELECT * FROM stories";
+					
+					$response = mysqli_query($link, $query);
+					$rows = mysqli_affected_rows($link);
+					
+					if($response && $rows > 0)//there's a response
+					{
+						while($row = mysqli_fetch_assoc($response))
+						{
+							echo "<div class='story'><p class='name'>" . $row['name'] . 
+								"<span class='date'>" . $row['date_added'] . "</span></p><p class='comment'>" . 
+								$row['comment'] . "</p></div>";
+						}
+					}
+				?>
+			</div>
+		</div>	
 
 <?php require("footer.php");?>

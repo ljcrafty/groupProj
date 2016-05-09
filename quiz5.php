@@ -3,7 +3,7 @@
 	require("head.php"); ?>
 <script>var answers = new Array("(Today is the (12th))", "(\d+)ft", "(?: \d\w+){2}", "(?:\$\d\.\d{2})+", "(November 19, (2000))");</script>
 		<div id="feedback"></div>
-		<form action='quiz3.php' method='post' onsubmit='validate(); return false;'>
+		<form action='quiz3.php' method='post' onsubmit='validateQuiz(); return false;'>
 		<ol>
 			<li>
 				How could you capture both “Today is the 12th” and “12th”?<br/>

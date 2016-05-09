@@ -3,7 +3,7 @@
 	require("head.php"); ?>
 <script>var answers = new Array("(Bar)t (wor)ks at \2 \1", "(ants) in my p\1", "(\d{2})th of \1\d{2}", "t(oe) sh\1s", "(1) and (4) is \1\2\?");</script>
 		<div id="feedback"></div>
-		<form action='quiz6.php' method='post' onsubmit='validate(); return false;'>
+		<form action='quiz6.php' method='post' onsubmit='validateQuiz(); return false;'>
 		<ol>
 			<li>
 				How could you select “Bart works at wor Bar”?<br/>

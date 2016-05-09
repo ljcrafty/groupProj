@@ -3,7 +3,7 @@
 	require("head.php"); ?>
 <script>var answers = new Array("\(\d{3}\)", "[aeiou]{2}", "\d{7,10}", "[\w^0-9]\d{1,2}", "\d+");</script>
 		<div id="feedback"></div>
-		<form action='quiz4.php' method='post' onsubmit='validate(); return false;'>
+		<form action='quiz4.php' method='post' onsubmit='validateQuiz(); return false;'>
 		<ol>
 			<li>
 				How could you select the area code of a phone number using quantifiers (include the parentheses)?<br/>

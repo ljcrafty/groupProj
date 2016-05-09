@@ -3,7 +3,7 @@
 	require("head.php"); ?>
 <script>var answers = new Array("Chapter [1-9]", "[ph]oppy", "[^dk]", "[A-Z]", ".[aeiou]");</script>
 		<div id="feedback"></div>
-		<form action='quiz2.php' method='post' onsubmit='validate(); return false;'>
+		<form action='quiz2.php' method='post' onsubmit='validateQuiz(); return false;'>
 		<ol>
 			<li>
 				How would you select every chapter heading in a book if the book had 9 chapters and the headings were all “Chapter 1”, “Chapter 2”, etc?<br/>

@@ -3,7 +3,7 @@
 	require("head.php"); ?>
 <script>var answers = new Array("\d\d", "\w\s", "ing\b", "[\w^0-9]\d\d", "\d\d[\d^9]");</script>
 		<div id="feedback"></div>
-		<form action='quiz3.php' method='post' onsubmit='validate(); return false;'>
+		<form action='quiz3.php' method='post' onsubmit='validateQuiz(); return false;'>
 		<ol>
 			<li>
 				How could you select just the number in the address “75 Pop Dr.”?<br/>

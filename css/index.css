@@ -46,6 +46,7 @@ nav ul li a {
 
 nav > ul > li:hover > a{
 	background: #76C2DB;
+	color: #333;
 }
 
 nav > ul > li.active > a, nav > ul > li > a:active{
@@ -277,6 +278,38 @@ textarea
 input
 {
 	margin: 15px 5px;
+}
+
+/*comments section*/
+.story
+{
+	width: 90%;
+	background-color: #5C5CE1;
+	border-radius: 5px;
+	margin-bottom: 20px;
+	padding: 0;
+}
+
+.comment
+{
+	padding: 10px;
+	margin: 0;
+}
+
+.name
+{
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	background-color: #B3B3F1;
+	padding: 10px;
+	margin: 0;
+}
+
+.date
+{
+	float: right;
+	font-size: .8em;
+	color: #555;
 }
 
 /*regex tester*/

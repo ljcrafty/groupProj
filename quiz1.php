@@ -6,7 +6,7 @@
 	var capture = false;
 </script>
 		<div id="feedback"></div>
-		<form action='quiz1.php' method='post' onsubmit='validate(); return false;'>
+		<form action='quiz1.php' method='post' onsubmit='validateQuiz(); return false;'>
 		<ol>
 			<li>
 				What would select "pop" from "poppy potatoes"?<br/>
