@@ -55,7 +55,7 @@ function validateQuiz()
 		//identifies every wrong answer
 		for(var i = 0; i < answers.length; i++)
 		{
-			if(!checkAnswer(values[i], answers[i], "", capture))
+			if(values[i] != answers[i])
 			{
 				error += "<li>Question " + (parseInt(i) + 1) + "</li>";
 			}
@@ -76,8 +76,7 @@ function validateQuiz()
 			var number = parseInt(quiz) + 1;
 			if(quiz < 7)
 			{
-				window.location = "quiz" + number + ".php";
-				byId("success").style.display = "block";
+				window.location = "quiz" + number + ".php#success";
 			}
 			else
 			{
@@ -260,11 +259,6 @@ function checkAnswer(regex, match, butNot, capture)
 	}// end not capture
 	return true;
 }//end checkAnswer
-
-function checkSingle(regex, match, butNot, capture)
-{
-	
-}
 
 function showSuccess()
 {

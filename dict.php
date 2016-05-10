@@ -29,6 +29,14 @@
 				defs[i].parentNode.removeChild(defs[i]);
 			}
 			
+			//get rid of div holding definitions too
+			var divs = document.getElementsByClassName("topic");
+			
+			for(var i = 0; i < divs.length; i++)
+			{
+				divs[i].parentNode.removeChild(divs[i]);
+			}
+			
 			//doesn't repopulate if user clicked on selected topic
 			if(topicDiv == null)
 			{	
