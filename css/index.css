@@ -166,6 +166,19 @@ strong
 	color: #3ba2c5;
 }
 
+img
+{
+	width: 300px;
+}
+
+.content .about
+{
+	width: 300px;
+	float: left;
+	list-style-type: none;
+	margin: 20px;
+}
+
 /*Appendix-specific*/
 #dictionaryList
 {
