@@ -25,30 +25,21 @@
 		</p>
 	</div>
 	
-  	<div class = "container">
-		<div class = "inner-container">
-			<ul>
-				<li>
-					<strong>Example(1):</strong><br/>
-					Regex: p[oa]<br/>
-					Result: <span class="select">po</span>tato, <span class="select">po</span>p, <span class="select">pa</span>
-						n, <span class="select">pa</span>ce, pink, <span class="select">po</span>land, prepare
-				</li>
-				<li>
-					<strong>Example(2):</strong><br/>
-					Regex: ...[0123456789]<br/>
-					Result: pop, <span class="select">pop0</span>, <span class="select">pop1</span>,
-						 <span class="select">pop2</span>, popcorn, <span class="select">pop4</span>
-				</li>
-				<li>
-					<strong>Example(3):</strong>
-					Regex: ...[0-9]
-					Result: pop, <span class="select">pop0</span>, <span class="select">pop1</span>, 
-						<span class="select">pop2</span>, popcorn, <span class="select">pop4</span>
-				</li>
-			</ul>
-		</div>
-	</div>
+  	<?php
+			$exs = Array(
+						Array("p[oa]", "<span class='select'>po</span>tato, <span class='select'>po</span>p, 
+							<span class='select'>pa</span>n, <span class='select'>pa</span>ce, pink, 
+							<span class='select'>po</span>land, prepare"
+							),
+						Array("...[0123456789]", "pop, <span class='select'>pop0</span>, <span class='select'>pop1</span>,
+						 	<span class='select'>pop2</span>, popcorn, <span class='select'>pop4</span>"
+							),
+						Array("...[0-9]", "pop, <span class='select'>pop0</span>, <span class='select'>pop1</span>, 
+							<span class='select'>pop2</span>, popcorn, <span class='select'>pop4</span>"
+							)
+						);
+			require("ex.php");
+		?>
 	<p>
   		How about you try it?
   	</p>

@@ -30,28 +30,20 @@
 	</div>
 	
 	<div class = "container">
-		<div class = "inner-container">
-			<ul>
-				<li>
-					<strong>Example(1):</strong><br/>
-					Regex: <code>.+(?=:)</code><br/>
-					Result: <span class="select">http</span>://www.potatopop.com   
-						<span class="select">https</span>://www.google.com
-				</li>
-				<li>
-					<strong>Example(2):</strong><br/>
-					Regex: .+(?=dollar)<br/>
-					Result: <span class="select">100</span>dollar   <span class="select">200</span>dollar  
-						<span class="select">pi</span>dollar
-				</li>
-				<li>
-					<strong>Example(3):</strong><br/>
-					Regex: (?&lt;=\@)[0-9.]+<br/>
-					Result: @<span class="select">123</span>   @<span class="select">567</span>
-						@<span class="select">888</span>
-				</li>
-			</ul>
-		</div>
+		<?php
+			$exs = Array(
+						Array(".+(?=:)", "<span class='select'>http</span>://www.potatopop.com   
+							<span class='select'>https</span>://www.google.com"
+							),
+						Array(".+(?=dollar)", "<span class='select'>100</span>dollar   <span class='select'>200</span>dollar  
+							<span class='select'>pi</span>dollar"
+							),
+						Array("(?&lt;=\@)[0-9.]+", "@<span class='select'>123</span>   @<span class='select'>567</span>
+							@<span class='select'>888</span>"
+							)
+						);
+			require("ex.php");
+		?>
 	</div>
 	<p>
   		How about you try it?

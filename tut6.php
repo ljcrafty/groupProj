@@ -20,21 +20,15 @@
 	</div>
 	
 	<div class = "container">
-		<div class = "inner-container">
-			<ul>
-				<li>
-					<strong>Example(1):</strong><br/>
-					Regex: \b([a-z]+)\1\b<br/>
-					Result: <span class="select">popo</span> potato pop
-				</li>
-				<li>
-					<strong>Example(2):</strong><br/>
-					Regex: &lt;h([1-4])&gt;.*?&lt;\/h\1&gt;<br/>
-					Result: <span class="select">&lt;h1&gt;Potato&lt;/h1&gt;</span>   
-						<span class="select">&lt;h2&gt;Potato&lt;/h2&gt;</span>   &lt;h3&gt;Potato&lt;/h1&gt;
-				</li>
-			</ul>
-		</div>
+		<?php
+			$exs = Array(
+						Array("\b([a-z])+\1\b", "<span class='select'>popo</span> potato pop"),
+						Array("&lt;h([1-4])&gt;.*?&lt;\/h\1&gt;", "<span class='select'>&lt;h1&gt;Potato&lt;/h1&gt;</span>   
+							<span class='select'>&lt;h2&gt;Potato&lt;/h2&gt;</span>   &lt;h3&gt;Potato&lt;/h1&gt;"
+							)
+						);
+			require("ex.php");
+		?>
 	</div>
 	
 	<div class = "container">	

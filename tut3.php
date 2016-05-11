@@ -18,20 +18,13 @@
 		<p>
 			Here are some examples...
 		</p>
-			<div class = "inner-container">
-				<ul>
-					<li>
-						<strong>Example(1):</strong><br/>
-						Regex: \[\d\d\]<br/>
-						Result: <span class="select">[01] [15] [39]</span> [2] [p] [o]
-					</li>
-					<li>
-						<strong>Example(2):</strong><br/>
-						Regex: \(\W\)<br/>
-						Result: <span class="select">(-) ($) (@)</span> [3] (p) {o} (1)
-					</li>
-				</ul>
-			</div>
+			<?php
+			$exs = Array(
+						Array("\[\d\d\]", "<span class='select'>[01] [15] [39]</span> [2] [p] [o]"),
+						Array("\(\W\)", "<span class='select'>(-) ($) (@)</span> [3] (p) {o} (1)")
+						);
+			require("ex.php");
+		?>
   	</div>
 	
 	<div class = "container">	

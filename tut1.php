@@ -1,5 +1,5 @@
 <?php $title = "Topic 1: Finding Simple Text";
-	$head = "Finding Simple Text / Numbers";
+	$head = "Topic 1: Finding Simple Text / Numbers";
 	require("head.php"); ?>
 	<!-- Lauren Johnston: set up basic html and php includes 4/4/16-->
 	<div class = "container">
@@ -32,27 +32,15 @@
 			Here are a few examples...
 		</p>
 		
-		<div class = "inner-container">
-			<ul>
-				<li>
-					<strong>Example(1):</strong><br/>
-					<strong>Regex:</strong> <code>Pop</code><br/>
-					<strong>Result:</strong> Potato<span class="select">Pop Pop</span> abc<span class="select">Pop</span>
-						def <span class="select">Pop</span>tart potato
-				</li>
-				<li>
-					<strong>Example(2):</strong><br/>
-					Regex: Potato&nbsp;Pop<br/>
-					Result: PotatoPop Potatopop
-				</li>
-				<li>
-					<strong>Example(3):</strong><br/>
-					Regex: 123<br/>
-					Result: abcd<span class="select">123</span>4
-				</li>
-			</ul>
-		</div>
-	</div>
+		<?php
+			$exs = Array(
+						Array("Pop", "Potato<span class='select'>Pop Pop</span> abc<span class='select'>Pop</span>
+							def <span class='select'>Pop</span>tart potato"),
+						Array("Potato&nbsp;Pop", "PotatoPop Potatopop"),
+						Array("123", "abcd<span class='select'>123</span>4")
+						);
+			require("ex.php");
+		?>
 	
 	<div class = "container">
 		<p>
@@ -69,23 +57,17 @@
 			Here are some more examples...
 		</p>
 		
-		<div class = "inner-container">
-			<ul>
-				<li>
-					<strong>Example(4):</strong><br/>
-					Regex: h.s<br/>
-					Result: He <span class="select">has</span> a potato and <span class="select">his</span> potato is big.
-				</li>
-				<li>
-					<strong>Example(5):</strong><br/>
-					Regex: h..<br/>
-					Result: <span class="select">He has</span> a potato and <span class="select">his</span> potato was big. 
-					Because my potato was small, I cut <span class="select">his</span> potato in <span class="select">hal</span>f. 
-					<span class="select">He</span> told <span class="select">his</span> mother that I cut 
-					<span class="select">his</span> potato and I got in trouble.
-				</li>
-			</ul>
-		</div>
+		<?php
+			$exs = Array(
+						Array("h.s", "He <span class='select'>has</span> a potato and <span class='select'>his</span> potato is big."),
+						Array("h..", "<span class='select'>He has</span> a potato and <span class='select'>his</span> potato was big. 
+							Because my potato was small, I cut <span class='select'>his</span> potato in <span class='select'>hal</span>f. 
+							<span class='select'>He</span> told <span class='select'>his</span> mother that I cut 
+							<span class='select'>his</span> potato and I got in trouble."
+							)
+						);
+			require("ex.php");
+		?> 
 	</div>
   	<p>
   		How about you try it?

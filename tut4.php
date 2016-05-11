@@ -32,39 +32,12 @@
 			</div>
 			
 			<div class = "container">
-				<div class = "inner-container">
-					<ul>
-						<li>
-							<strong>Example(1):</strong><br/>
-							Regex: [0-9]{4}<br/>
-							Result: 12  123  <span class="select">1234</span>  <span class="select">1235</span>
-								6  789  <span class="select">7890</span>
-						</li>
-					</ul>
-				</div>
-			</div>
-			
-			<div class = "container">
 				<p>
 					The next quantifier is a range. This also uses squiggly braces, but inside of the 
 					braces is two numbers separated by a comma. This notation allows you to create 
 					expressions with more flexibility by allowing a range of repetitions to be selected. 
 					For example, <code>\.{2, 4}</code> would select between 2 and 4 periods in a row.
 				<p>
-			</div>
-			
-			<div class = "container">
-				<div class = "inner-container">
-					<ul>
-						<li>
-							<strong>Example(2):</strong><br/>
-							Regex: \d{2,4}<br/>
-							Result: 1  <span class="select">12</span>  <span class="select">123</span>  
-								<span class="select">1234</span>  <span class="select">1234</span>5    
-								<span class="select">1234|56</span>
-						</li>
-					</ul>
-				</div>
 			</div>
 			
 			<div class = "container">
@@ -76,6 +49,21 @@
 					or more times. So, <code>a\d*</code> would select "a" and "a1", but <code>a\d+</code> 
 					would only select "a1".
 				</p>
+			</div>
+			
+			<div class = "container">
+				<?php
+					$exs = Array(
+								Array("[0-9]{4}", "12  123  <span class='select'>1234</span>  <span class='select'>1235</span>
+									6  789  <span class='select'>7890</span>"
+									),
+								Array("\d{2,4}", "1  <span class='select'>12</span>  <span class='select'>123</span>  
+									<span class='select'>1234</span>  <span class='select'>1234</span>5    
+									<span class='select'>1234|56</span>"
+									)
+								);
+					require("ex.php");
+				?>
 			</div>
 	<p>
   		How about you try it?

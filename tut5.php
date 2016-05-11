@@ -11,19 +11,7 @@
 			are also called captures because they capture the part of the expression in between 
 			the parentheses (<code>( )</code>) that mark them.      
 		</p>
-	</div>
-	
-	<div class = "container">
-		<div class = "inner-container">
-			<ul>
-				<li>
-					<strong>Example(1):</strong><br/>
-					Regex: (pop)py<br/>
-					Would capture: <span class="select">pop</span> 
-				</li>
-			</ul>
-		</div>
-	</div>
+	</div> 
 	
 	<div class = "container">
 		<p>
@@ -35,15 +23,13 @@
 	</div>
 	
 	<div class = "container">
-		<div class = "inner-container">
-			<ul>
-				<li>
-					<strong>Example(2):</strong><br/>
-					Regex: (?:pop)py<br/>
-					Would capture: nothing  
-				</li>
-			</ul>
-		</div>
+		<?php
+			$exs = Array(
+						Array("(pop)py", "<span class='select'>pop</span>"),
+						Array("(?:pop)py", "nothing")
+						);
+			require("ex.php");
+		?>
 	</div>
 <script>var answer = '(\\d{4})';</script>
 	<p>
