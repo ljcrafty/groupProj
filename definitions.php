@@ -11,7 +11,8 @@
 		$headers = apache_response_headers();
 		$topic_num = $_GET["topic"];
 		
-		$query = "SELECT * from dictionary WHERE type = '" . $topic_num . "'";	
+		$query = "SELECT * FROM dictionary WHERE type = '" . $topic_num . 
+			"' OR type = '" . ($topic_num + 1) . "' ORDER BY type, id";	
 		$response = mysqli_query($link, $query);
 		$rows = mysqli_affected_rows($link);
 		

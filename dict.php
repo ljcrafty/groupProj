@@ -62,6 +62,7 @@
 						parent.appendChild(topicDiv);
 					
 					//send request
+					topicNum *= 10;
 					http.open("GET", url + "?topic=" + topicNum, true);
 					http.onreadystatechange = printDefs;
 					
@@ -69,10 +70,6 @@
 					http.setRequestHeader("topic", topicNum.toString());
 					http.send();
 				}
-			}
-			else//user clicked on selected topic
-			{
-				topicDiv.parentNode.removeChild(topicDiv);
 			}
 		}
 		
