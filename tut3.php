@@ -23,12 +23,12 @@
 					<li>
 						<strong>Example(1):</strong><br/>
 						Regex: \[\d\d\]<br/>
-						Result: <strong>[01] [15] [39]</strong> [2] [p] [o]
+						Result: <span class="select">[01] [15] [39]</span> [2] [p] [o]
 					</li>
 					<li>
 						<strong>Example(2):</strong><br/>
 						Regex: \(\W\)<br/>
-						Result: <strong>(-) ($) (@)</strong> [3] (p) {o} (1)
+						Result: <span class="select">(-) ($) (@)</span> [3] (p) {o} (1)
 					</li>
 				</ul>
 			</div>

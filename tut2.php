@@ -31,20 +31,20 @@
 				<li>
 					<strong>Example(1):</strong><br/>
 					Regex: p[oa]<br/>
-					Result: <strong>po</strong>tato, <strong>po</strong>p, <strong>pa</strong>n, 
-					<strong>pa</strong>ce, pink, <strong>po</strong>land, prepare
+					Result: <span class="select">po</span>tato, <span class="select">po</span>p, <span class="select">pa</span>
+						n, <span class="select">pa</span>ce, pink, <span class="select">po</span>land, prepare
 				</li>
 				<li>
 					<strong>Example(2):</strong><br/>
 					Regex: ...[0123456789]<br/>
-					Result: pop, <strong>pop0</strong>, <strong>pop1</strong>, <strong>pop2</strong>, 
-					popcorn, <strong>pop4</strong>
+					Result: pop, <span class="select">pop0</span>, <span class="select">pop1</span>,
+						 <span class="select">pop2</span>, popcorn, <span class="select">pop4</span>
 				</li>
 				<li>
 					<strong>Example(3):</strong>
 					Regex: ...[0-9]
-					Result: pop, <strong>pop0</strong>, <strong>pop1</strong>, <strong>pop2</strong>, 
-					popcorn, <strong>pop4</strong>
+					Result: pop, <span class="select">pop0</span>, <span class="select">pop1</span>, 
+						<span class="select">pop2</span>, popcorn, <span class="select">pop4</span>
 				</li>
 			</ul>
 		</div>

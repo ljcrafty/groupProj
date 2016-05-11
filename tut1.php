@@ -37,8 +37,8 @@
 				<li>
 					<strong>Example(1):</strong><br/>
 					<strong>Regex:</strong> <code>Pop</code><br/>
-					<strong>Result:</strong> Potato<strong>Pop Pop</strong> abc<strong>Pop</strong>def <strong>Pop
-					</strong>tart potato
+					<strong>Result:</strong> Potato<span class="select">Pop Pop</span> abc<span class="select">Pop</span>
+						def <span class="select">Pop</span>tart potato
 				</li>
 				<li>
 					<strong>Example(2):</strong><br/>
@@ -48,7 +48,7 @@
 				<li>
 					<strong>Example(3):</strong><br/>
 					Regex: 123<br/>
-					Result: abcd<strong>123</strong>4
+					Result: abcd<span class="select">123</span>4
 				</li>
 			</ul>
 		</div>
@@ -74,15 +74,15 @@
 				<li>
 					<strong>Example(4):</strong><br/>
 					Regex: h.s<br/>
-					Result: He <strong>has</strong> a potato and <strong>his</strong> potato is big.
+					Result: He <span class="select">has</span> a potato and <span class="select">his</span> potato is big.
 				</li>
 				<li>
 					<strong>Example(5):</strong><br/>
 					Regex: h..<br/>
-					Result: <strong>He has</strong> a potato and <strong>his</strong> potato was big. 
-					Because my potato was small, I cut <strong>his</strong> potato in <strong>hal</strong>f. 
-					<strong>He</strong> told <strong>his</strong> mother that I cut <strong>his</strong> 
-					potato and I got in trouble.
+					Result: <span class="select">He has</span> a potato and <span class="select">his</span> potato was big. 
+					Because my potato was small, I cut <span class="select">his</span> potato in <span class="select">hal</span>f. 
+					<span class="select">He</span> told <span class="select">his</span> mother that I cut 
+					<span class="select">his</span> potato and I got in trouble.
 				</li>
 			</ul>
 		</div>

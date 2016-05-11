@@ -37,7 +37,8 @@
 						<li>
 							<strong>Example(1):</strong><br/>
 							Regex: [0-9]{4}<br/>
-							Result: 12  123  <strong>1234</strong>  <strong>1235</strong>6  789  <strong>7890</strong>
+							Result: 12  123  <span class="select">1234</span>  <span class="select">1235</span>
+								6  789  <span class="select">7890</span>
 						</li>
 					</ul>
 				</div>
@@ -58,8 +59,9 @@
 						<li>
 							<strong>Example(2):</strong><br/>
 							Regex: \d{2,4}<br/>
-							Result: 1  <strong>12</strong>  <strong>123</strong>  <strong>1234</strong>  
-							<strong>1234</strong>5    <strong>1234|56</strong>
+							Result: 1  <span class="select">12</span>  <span class="select">123</span>  
+								<span class="select">1234</span>  <span class="select">1234</span>5    
+								<span class="select">1234|56</span>
 						</li>
 					</ul>
 				</div>

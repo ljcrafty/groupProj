@@ -166,6 +166,18 @@ strong
 	color: #3ba2c5;
 }
 
+.select
+{
+	color: #2db558;
+}
+
+code
+{
+	background-color: white;
+	color: #db6842;
+	font-size: 1.2em;
+}
+
 img
 {
 	width: 300px;
@@ -297,7 +309,7 @@ input
 .story
 {
 	width: 90%;
-	background-color: #5C5CE1;
+	background-color: #42B5DB;
 	border-radius: 5px;
 	margin-bottom: 20px;
 	padding: 0;
@@ -313,7 +325,7 @@ input
 {
 	border-top-right-radius: 5px;
 	border-top-left-radius: 5px;
-	background-color: #B3B3F1;
+	background-color: #acdae9;
 	padding: 10px;
 	margin: 0;
 }
@@ -388,7 +400,7 @@ textarea {
 
 input[type=submit] {
     width: 100%;
-    background-color: #B3B3F1;
+    background-color: #76C2DB;
     color: white;
 	font-weight:bold;
     padding: 18px 20px;
@@ -399,5 +411,5 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: #5c5ce1;
+    background-color: #42B5DB;
 }

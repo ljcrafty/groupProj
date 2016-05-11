@@ -35,19 +35,20 @@
 				<li>
 					<strong>Example(1):</strong><br/>
 					Regex: <code>.+(?=:)</code><br/>
-					Result: <strong>http</strong>://www.potatopop.com   
-					<strong>https</strong>://www.google.com
+					Result: <span class="select">http</span>://www.potatopop.com   
+						<span class="select">https</span>://www.google.com
 				</li>
 				<li>
 					<strong>Example(2):</strong><br/>
 					Regex: .+(?=dollar)<br/>
-					Result: <strong>100</strong>dollar   <strong>200</strong>dollar  
-					<strong>pi</strong>dollar
+					Result: <span class="select">100</span>dollar   <span class="select">200</span>dollar  
+						<span class="select">pi</span>dollar
 				</li>
 				<li>
 					<strong>Example(3):</strong><br/>
 					Regex: (?&lt;=\@)[0-9.]+<br/>
-					Result: @<strong>123</strong>   @<strong>567</strong>   @<strong>888</strong>
+					Result: @<span class="select">123</span>   @<span class="select">567</span>
+						@<span class="select">888</span>
 				</li>
 			</ul>
 		</div>

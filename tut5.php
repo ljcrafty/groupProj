@@ -19,7 +19,7 @@
 				<li>
 					<strong>Example(1):</strong><br/>
 					Regex: (pop)py<br/>
-					Would capture: <strong>pop</strong> 
+					Would capture: <span class="select">pop</span> 
 				</li>
 			</ul>
 		</div>
